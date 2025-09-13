@@ -1,0 +1,108 @@
+const products = [
+  {
+    id: 1,
+    img1: "img/product/home1-pro-1.jpg",
+    img2: "img/product/home1-pro-2.jpg",
+    subtitle: "Wireless device",
+    title: "Wireless headphones",
+    newPrice: "$21.00",
+    oldPrice: "$25.00",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    rating: 5,
+    sale: "20%",
+  },
+  {
+    id: 2,
+    img1: "img/product/home1-pro-3.jpg",
+    img2: "img/product/home1-pro-4.jpg",
+    subtitle: "Waterproof",
+    title: "Wireless mouse",
+    newPrice: "$18.00",
+    oldPrice: "$24.00",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    rating: 5,
+    sale: "14%",
+  },
+  {
+    id: 3,
+    img1: "img/product/home1-pro-5.jpg",
+    img2: "img/product/home1-pro-6.jpg",
+    subtitle: "Live program",
+    title: "Pen drivess",
+    newPrice: "$10.00",
+    oldPrice: "$15.00",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    rating: 5,
+    sale: "22%",
+  },
+  {
+    id: 4,
+    img1: "img/product/home1-pro-7.jpg",
+    img2: "img/product/home1-pro-8.jpg",
+    subtitle: "Waterproof watch",
+    title: "Smart watch",
+    newPrice: "$32.00",
+    oldPrice: "$38.00",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    rating: 5,
+    sale: "30%",
+  },
+  {
+    id: 5,
+    img1: "img/product/home1-pro-1.jpg",
+    img2: "img/product/home1-pro-2.jpg",
+    subtitle: "Wireless device",
+    title: "Wireless headphones",
+    newPrice: "$21.00",
+    oldPrice: "$25.00",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    rating: 5,
+    sale: "20%",
+  },
+  {
+    id: 6,
+    img1: "img/product/home1-pro-3.jpg",
+    img2: "img/product/home1-pro-4.jpg",
+    subtitle: "Waterproof",
+    title: "Wireless mouse",
+    newPrice: "$18.00",
+    oldPrice: "$24.00",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    rating: 5,
+    sale: "14%",
+  },
+  {
+    id: 7,
+    img1: "img/product/home1-pro-5.jpg",
+    img2: "img/product/home1-pro-6.jpg",
+    subtitle: "Live program",
+    title: "Pen drivess",
+    newPrice: "$10.00",
+    oldPrice: "$15.00",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    rating: 5,
+    sale: "22%",
+  },
+  {
+    id: 8,
+    img1: "img/product/home1-pro-7.jpg",
+    img2: "img/product/home1-pro-8.jpg",
+    subtitle: "Waterproof watch",
+    title: "Smart watch",
+    newPrice: "$32.00",
+    oldPrice: "$38.00",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    rating: 5,
+    sale: "30%",
+  },
+];
+
+export default products;
