@@ -46,7 +46,7 @@ const ProductInfo = () => {
               <div className="pro-grli-wrap product-grid">
                 <div className="collection-img-wrap">
                   <h6 className="st-title">Collection left (23)</h6>
-                  {/* <!-- collection info start --> */}
+
                   <div className="collection-info">
                     <div className="collection-image">
                       <img
@@ -56,7 +56,6 @@ const ProductInfo = () => {
                       />
                     </div>
                   </div>
-                  {/* <!-- collection info end --> */}
                 </div>
                 {/* <!-- shop-top-bar start --> */}
                 <div className="shop-top-bar wow">
@@ -88,7 +87,6 @@ const ProductInfo = () => {
                     >
                       <i className="fa-solid fa-list"></i>
                     </Link>
-                    {/* <!-- shop-item-filter-list end --> */}
                   </div>
                   {/* <!-- product-short start --> */}
                   <div className="product-short">
@@ -154,11 +152,8 @@ const ProductInfo = () => {
                       </li>
                     </ul>
                   </div>
-                  {/* <!-- product-short end --> */}
                 </div>
-                {/* <!-- shop-top-bar end --> */}
-                {/* <!-- Latest-product start --> */}
-                {/* <div className="special-product grid-3"> */}
+
                 <div className={`special-product grid-${gridView}`}>
                   <div className="collection-category">
                     <div className="row">
@@ -342,7 +337,6 @@ const ProductInfo = () => {
                     </div>
                   </div>
                 </div>
-                {/* <!-- Latest-product end --> */}
               </div>
 
               <div className="pro-grli-wrap product-sidebar">
@@ -353,7 +347,7 @@ const ProductInfo = () => {
                       <button className="close-sidebar" type="button">
                         <i className="fa-solid fa-xmark"></i>
                       </button>
-                      {/* <!-- button end --> */}
+
                       {/* <!-- filter-form start --> */}
                       <div className="facets">
                         <form className="facets-form">
@@ -542,7 +536,7 @@ const ProductInfo = () => {
                                 </ul>
                               </div>
                             </div>
-                            {/* <!-- Product-Categories end --> */}
+
                             <div className="shop-sidebar sidebar-filter">
                               <h6 className="shop-title">Filter</h6>
                               <Link to="#" className="shop-title shop-title-lg">
@@ -637,7 +631,7 @@ const ProductInfo = () => {
                                   </div>
                                 </price-range>
                               </div>
-                              {/* <!-- Product-price end --> */}
+
                               {/* <!-- More-filters start --> */}
                               <div className="shop-sidebar sidebar-open">
                                 <h6 className="shop-title">More filters</h6>
@@ -857,7 +851,6 @@ const ProductInfo = () => {
                                   </ul>
                                 </div>
                               </div>
-                              {/* <!-- More-filters end --> */}
                             </div>
                             <div className="shop-sidebar sidebar-product">
                               <h6 className="shop-title">Product type</h6>
@@ -1001,7 +994,6 @@ const ProductInfo = () => {
                           </div>
                         </form>
                       </div>
-                      {/* <!-- filter-form end --> */}
                     </div>
                   </div>
                   {/* <!-- sidebar img start --> */}
@@ -1019,7 +1011,6 @@ const ProductInfo = () => {
                       </span>
                     </Link>
                   </div>
-                  {/* <!-- sidebar img start --> */}
                 </div>
               </div>
             </div>

@@ -29,7 +29,6 @@ const WishlistProduct = () => {
         <div className="container">
           <div className="row">
             <div className="col">
-              {/* <!-- wishlist-page start --> */}
               <div className="wishlist-page">
                 <div className="wishlist-area">
                   <div className="wishlist-details">
@@ -247,7 +246,6 @@ const WishlistProduct = () => {
                   </div>
                 </div>
               </div>
-              {/* <!-- wishlist-page end --> */}
             </div>
           </div>
         </div>

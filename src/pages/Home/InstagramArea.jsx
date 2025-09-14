@@ -36,7 +36,7 @@ const InstagramArea = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col">
-            {/* Section Title */}
+   
             <div className="section-capture text-center mb-4">
               <div className="section-title">
                 <span className="sub-title">Our instagram shop</span>
@@ -46,7 +46,7 @@ const InstagramArea = () => {
               </div>
             </div>
 
-            {/* Slider */}
+    
             <div className="insta-slider">
               <Slider {...settings}>
                 {instagramImages.map((item) => (

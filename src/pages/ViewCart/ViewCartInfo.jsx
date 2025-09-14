@@ -44,7 +44,6 @@ const ViewCartInfo = () => {
                         <ul className="cart-wrap">
                           {/* <!-- cart-info start --> */}
                           <li className="item-info">
-                            {/* <!-- cart-img start --> */}
                             <div className="item-img">
                               <Link to="/product">
                                 <img
@@ -54,8 +53,7 @@ const ViewCartInfo = () => {
                                 />
                               </Link>
                             </div>
-                            {/* <!-- cart-img end --> */}
-                            {/* <!-- cart-title start --> */}
+
                             <div className="item-text">
                               <Link to="/product">Bluetooth earbuds</Link>
                               <span className="item-option">
@@ -66,9 +64,8 @@ const ViewCartInfo = () => {
                                 <span className="item-price">$11,00</span>
                               </span>
                             </div>
-                            {/* <!-- cart-title send --> */}
                           </li>
-                          {/* <!-- cart-info end --> */}
+
                           {/* <!-- cart-qty start --> */}
                           <li className="item-qty">
                             <div className="product-quantity-action">
@@ -96,17 +93,15 @@ const ViewCartInfo = () => {
                               </span>
                             </div>
                           </li>
-                          {/* <!-- cart-qty end --> */}
+
                           {/* <!-- cart-price start --> */}
                           <li className="item-price">
                             <span className="amount full-price">$11,00</span>
                           </li>
-                          {/* <!-- cart-price end --> */}
                         </ul>
                         <ul className="cart-wrap">
                           {/* <!-- cart-info start --> */}
                           <li className="item-info">
-                            {/* <!-- cart-img start --> */}
                             <div className="item-img">
                               <Link to="/product">
                                 <img
@@ -116,8 +111,7 @@ const ViewCartInfo = () => {
                                 />
                               </Link>
                             </div>
-                            {/* <!-- cart-img end --> */}
-                            {/* <!-- cart-title start --> */}
+
                             <div className="item-text">
                               <Link to="/product">Portable speaker</Link>
                               <span className="item-option">
@@ -128,9 +122,8 @@ const ViewCartInfo = () => {
                                 <span className="item-price">$21,00</span>
                               </span>
                             </div>
-                            {/* <!-- cart-title send --> */}
                           </li>
-                          {/* <!-- cart-info end --> */}
+
                           {/* <!-- cart-qty start --> */}
                           <li className="item-qty">
                             <div className="product-quantity-action">
@@ -160,17 +153,13 @@ const ViewCartInfo = () => {
                               </span>
                             </div>
                           </li>
-                          {/* <!-- cart-qty end --> */}
-                          {/* <!-- cart-price start --> */}
+
                           <li className="item-price">
                             <span className="amount full-price">$21,00</span>
                           </li>
-                          {/* <!-- cart-price end --> */}
                         </ul>
                         <ul className="cart-wrap">
-                          {/* <!-- cart-info start --> */}
                           <li className="item-info">
-                            {/* <!-- cart-img start --> */}
                             <div className="item-img">
                               <Link to="/product">
                                 <img
@@ -180,8 +169,7 @@ const ViewCartInfo = () => {
                                 />
                               </Link>
                             </div>
-                            {/* <!-- cart-img end --> */}
-                            {/* <!-- cart-title start --> */}
+
                             <div className="item-text">
                               <Link to="/product">Verse earphones</Link>
                               <span className="item-option">
@@ -192,10 +180,8 @@ const ViewCartInfo = () => {
                                 <span className="item-price">$24,00</span>
                               </span>
                             </div>
-                            {/* <!-- cart-title send --> */}
                           </li>
-                          {/* <!-- cart-info end --> */}
-                          {/* <!-- cart-qty start --> */}
+
                           <li className="item-qty">
                             <div className="product-quantity-action">
                               <div className="product-quantity">
@@ -224,12 +210,10 @@ const ViewCartInfo = () => {
                               </span>
                             </div>
                           </li>
-                          {/* <!-- cart-qty end --> */}
-                          {/* <!-- cart-price start --> */}
+
                           <li className="item-price">
                             <span className="amount full-price">$24,00</span>
                           </li>
-                          {/* <!-- cart-price end --> */}
                         </ul>
                       </div>
                       <div className="cart-buttons">

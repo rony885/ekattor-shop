@@ -117,7 +117,6 @@ const Category = () => {
       <div className="container">
         <div className="row">
           <div className="col">
-            {/* Heading */}
             <div className="section-capture d-flex justify-content-between align-items-center mb-4">
               <div className="section-title">
                 <span className="sub-title">Favorites item</span>
@@ -130,7 +129,6 @@ const Category = () => {
               </Link>
             </div>
 
-            {/* Slider */}
             <Slider {...settings}>
               {categories.map((cat) => (
                 <div key={cat.id} className="cate-info text-center p-2">

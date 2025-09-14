@@ -36,14 +36,12 @@ const slides = [
   },
 ];
 
-// Custom Prev Button
 const PrevArrow = ({ onClick }) => (
   <button className="custom-arrow custom-prev" onClick={onClick}>
     <FaAngleLeft />
   </button>
 );
 
-// Custom Next Button
 const NextArrow = ({ onClick }) => (
   <button className="custom-arrow custom-next" onClick={onClick}>
     <FaAngleRight />
@@ -85,7 +83,7 @@ const SliderHeroArea = () => {
                   />
                 </div>
 
-                {/* Text content */}
+              
                 <div className="container slider-info-content">
                   <div className="row">
                     <div className="col">

@@ -29,7 +29,6 @@ const Login = () => {
         <div className="container">
           <div className="row">
             <div className="col">
-              {/* <!-- account login title start --> */}
               <div className="log-acc" id="CustomerLoginForm">
                 <div className="section-capture">
                   <div className="section-title">
@@ -38,8 +37,7 @@ const Login = () => {
                     </h2>
                   </div>
                 </div>
-                {/* <!-- account login title end --> */}
-                {/* <!-- account login start  --> */}
+
                 <div className="log-acc-page">
                   <div className="contact-form-list">
                     <form method="post">
@@ -72,7 +70,7 @@ const Login = () => {
                   <div className="acc-wrapper">
                     <h6>Already have account?</h6>
                     <div className="account-optional">
-                      <Link to="create-account.html">Create a account</Link>
+                      <Link to="/create-account">Create a account</Link>
                     </div>
                   </div>
                 </div>
@@ -82,7 +80,6 @@ const Login = () => {
                 id="RecoverPasswordForm"
                 style={{ display: "none" }}
               >
-                {/* <!-- account title start --> */}
                 <div className="content-main-title">
                   <div className="section-capture">
                     <div className="section-title">
@@ -92,8 +89,7 @@ const Login = () => {
                     </div>
                   </div>
                 </div>
-                {/* <!-- account title end --> */}
-                {/* <!-- account login start --> */}
+
                 <div className="log-acc-page">
                   <div className="contact-form-list">
                     <form method="post">
@@ -120,9 +116,7 @@ const Login = () => {
                     </form>
                   </div>
                 </div>
-                {/* <!-- account login end --> */}
               </div>
-              {/* <!-- account login start --> */}
             </div>
           </div>
         </div>

@@ -95,7 +95,6 @@ const Product = () => {
             </div>
           </div>
 
-          {/* Slick Slider */}
           <div className="container">
             <div className="row">
               <div className="col">
@@ -104,7 +103,6 @@ const Product = () => {
                     {...settings}
                     className="swiper-slide  swiper-slide-visible swiper-slide-active"
                   >
-                    {/* <Slider {...settings}> */}
                     {products.map((product) => (
                       <div key={product.id} className="single-product-wrap">
                         <div className="product-image">
@@ -195,14 +193,12 @@ const Product = () => {
                     ))}
                   </Slider>
 
-                  {/* View all */}
                   <div className="collection-button">
                     <Link to="/product" className="btn btn-style2">
                       View all item
                     </Link>
                   </div>
 
-                  {/* Dots */}
                   <div className="swiper-dots">
                     <div className="swiper-pagination swiper-pagination-Trending"></div>
                   </div>

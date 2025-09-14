@@ -30,7 +30,7 @@ const ProWishlist = () => {
           <div className="row">
             <div className="col">
               <div className="password-block">
-                {/* <!-- order profile start --> */}
+            
                 <div className="profile-info">
                   <div className="account-profile">
                     <div className="pro-img">
@@ -86,8 +86,7 @@ const ProWishlist = () => {
                     </ul>
                   </div>
                 </div>
-                {/* <!-- order profile end --> */}
-                {/* <!-- order info start --> */}
+              
                 <div className="profile-form order-info">
                   <div className="pro-add-title">
                     <h6>Wishlist</h6>
@@ -231,7 +230,7 @@ const ProWishlist = () => {
                     </div>
                   </div>
                 </div>
-                {/* <!-- order info end --> */}
+           
               </div>
             </div>
           </div>

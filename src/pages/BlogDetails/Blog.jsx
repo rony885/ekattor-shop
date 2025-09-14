@@ -57,7 +57,7 @@ const Blog = () => {
             </div>
           </div>
 
-          {/* Blog Slider */}
+
           <div className="container">
             <div className="row">
               <div className="col">

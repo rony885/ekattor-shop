@@ -47,7 +47,7 @@ const OrderComplete = () => {
                     </li>
                   </ul>
                 </div>
-                {/* <!-- order-price end --> */}
+
                 {/* <!-- order-details start --> */}
                 <div className="order-details">
                   <span className="text-success order-i">
@@ -57,14 +57,11 @@ const OrderComplete = () => {
                   <span className="order-s">
                     Your order will ship within few hours
                   </span>
-                  <Link
-                    to="/track"
-                    className="tracking-link btn btn-style2"
-                  >
+                  <Link to="/track" className="tracking-link btn btn-style2">
                     Tracking details
                   </Link>
                 </div>
-                {/* <!-- order-details start --> */}
+
                 {/* <!-- order-delivery start --> */}
                 <div className="order-delivery">
                   <ul className="delivery-payment">
@@ -97,7 +94,6 @@ const OrderComplete = () => {
                     </li>
                   </ul>
                 </div>
-                {/* <!-- order-delivery start --> */}
               </div>
             </div>
           </div>

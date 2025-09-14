@@ -147,7 +147,7 @@ const ProductTranding = () => {
             </div>
           </div>
 
-          {/* Slick Slider */}
+
           <div className="container">
             <div className="row">
               <div className="col">

@@ -243,12 +243,12 @@ const ProductDetailsInfo = () => {
                   )}
                 </div>
 
-                {/* <!-- peoduct detail start --> */}
+       
                 <div className="product-details-wrap product-details-tb product-details">
                   <div className="product-details-info">
                     <div className="pro-nprist">
                       <div className="product-info">
-                        {/* <!--  product-ratting start --> */}
+                    
                         <div className="product-ratting">
                           <span className="pro-ratting">
                             <i className="fas fa-star"></i>
@@ -259,14 +259,14 @@ const ProductDetailsInfo = () => {
                           </span>
                           <span className="spr-badge-caption">3 Reviews</span>
                         </div>
-                        {/* <!--  product-ratting end --> */}
+                     
                       </div>
                       <div className="product-info">
-                        {/* <!-- product-title start --> */}
+                    
                         <div className="product-title">
                           <h2>Wireless earbuds</h2>
                         </div>
-                        {/* <!-- product-title end --> */}
+                    
                       </div>
                       <div className="product-info">
                         <div className="pro-prlb pro-sale">
@@ -370,7 +370,7 @@ const ProductDetailsInfo = () => {
                       </div>
                       <div className="product-info">
                         <div className="product-actions">
-                          {/* <!-- pro-deatail button start --> */}
+                      
                           <div className="pro-detail-button">
                             <button
                               type="button"
@@ -400,7 +400,7 @@ const ProductDetailsInfo = () => {
                               <span className="wishlist-text">Wishlist</span>
                             </Link>
                           </div>
-                          {/* <!-- pro-deatail wishlist end --> */}
+           
                         </div>
                       </div>
                       <div className="product-info">
@@ -589,7 +589,7 @@ const ProductDetailsInfo = () => {
                           </div>
                         </div>
                       </div>
-                      {/* <!-- que-modal end --> */}
+                    
                       <div className="product-info">
                         <p>
                           <span>🚚</span> Item will be delivered on or before
@@ -799,7 +799,7 @@ const ProductDetailsInfo = () => {
                     </div>
                   </div>
                 </div>
-                {/* <!-- peoduct detail end --> */}
+              
               </div>
             </div>
           </div>

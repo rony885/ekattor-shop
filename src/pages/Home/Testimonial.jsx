@@ -57,7 +57,6 @@ const testimonials = [
   },
 ];
 
-// Custom Arrow Components
 const PrevArrow = (props) => {
   const { onClick } = props;
   return (
@@ -151,7 +150,7 @@ const Wrapper = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* centers content vertically */
+    justify-content: center; 
     height: 100%;
   }
 
@@ -177,11 +176,11 @@ const Wrapper = styled.section`
   }
 
   .prev-arrow {
-    left: -25px; /* adjust to move left */
+    left: -25px; 
   }
 
   .next-arrow {
-    right: -25px; /* adjust to move right */
+    right: -25px; 
   }
 `;
 

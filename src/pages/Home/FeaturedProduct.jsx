@@ -97,7 +97,6 @@ const ProductTranding = () => {
             </div>
           </div>
 
-          {/* Slick Slider */}
           <div className="container">
             <div className="row">
               <div className="col">
@@ -193,14 +192,12 @@ const ProductTranding = () => {
                     ))}
                   </Slider>
 
-                  {/* View all */}
                   <div className="collection-button">
                     <Link to="/product" className="btn btn-style2">
                       View all item
                     </Link>
                   </div>
 
-                  {/* Dots */}
                   <div className="swiper-dots">
                     <div className="swiper-pagination swiper-pagination-Trending"></div>
                   </div>
