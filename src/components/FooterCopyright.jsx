@@ -14,7 +14,7 @@ const FooterCopyright = () => {
                     <li>
                       <Link to="/">
                         <img
-                          src="img/payment/pay-1.jpg"
+                          src="/img/payment/pay-1.jpg"
                           className="img-fluid"
                           alt="pay-1"
                         />
@@ -23,7 +23,7 @@ const FooterCopyright = () => {
                     <li>
                       <Link to="/">
                         <img
-                          src="img/payment/pay-2.jpg"
+                          src="/img/payment/pay-2.jpg"
                           className="img-fluid"
                           alt="pay-2"
                         />
@@ -32,7 +32,7 @@ const FooterCopyright = () => {
                     <li>
                       <Link to="/">
                         <img
-                          src="img/payment/pay-3.jpg"
+                          src="/img/payment/pay-3.jpg"
                           className="img-fluid"
                           alt="pay-3"
                         />
@@ -41,7 +41,7 @@ const FooterCopyright = () => {
                     <li>
                       <Link to="/">
                         <img
-                          src="img/payment/pay-4.jpg"
+                          src="/img/payment/pay-4.jpg"
                           className="img-fluid"
                           alt="pay-4"
                         />

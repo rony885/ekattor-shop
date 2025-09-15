@@ -36,7 +36,7 @@ const Wrapper = styled.section`
     width: 60px;
     height: 60px;
     border: 6px solid #f3f3f3;
-    border-top: 6px solid #512ec3; /* primary color */
+    border-top: 6px solid #512ec3;
     border-radius: 50%;
     animation: spin 1s linear infinite;
   }

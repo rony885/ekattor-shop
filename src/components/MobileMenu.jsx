@@ -92,17 +92,6 @@ const MobileMenu = ({ menuOpen, closeMenu }) => {
                   >
                     <ul className="ul">
                       <li className="menusub-li">
-                        {/* <Link
-                          to="#menu-sup"
-                          className="menusub-title"
-                          data-bs-toggle="collapse"
-                          aria-expanded="false"
-                        >
-                          <span className="sp-link-title">About us</span>
-                          <span className="menu-arrow">
-                            <i className="fa-solid fa-angle-down"></i>
-                          </span>
-                        </Link> */}
                         <NavLink
                           to="#menu-sup"
                           className="menusub-title"
