@@ -20,6 +20,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Product from "./pages/Products/Product";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import SearchProduct from "./pages/Search/SearchProduct";
 import Blog from "./pages/Blog/Blog";
 import BlogDetails from "./pages/BlogDetails/BlogDetails";
 // import Contact from "./pages/Contact/Contact";
@@ -95,6 +96,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/product" element={<Product />} />
             <Route path="/product-details" element={<ProductDetails />} />
+            <Route path="/search" element={<SearchProduct />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog-details" element={<BlogDetails />} />
             <Route path="/wishlist-product" element={<WishlistProduct />} />
