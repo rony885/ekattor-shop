@@ -1,42 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
-
-const categories = [
-  {
-    id: 1,
-    img: "/img/cat/home-1-cate1.jpg",
-    title: "Wireless earbuds",
-    count: 10,
-  },
-  {
-    id: 2,
-    img: "/img/cat/home-1-cate2.jpg",
-    title: "Portable speaker",
-    count: 18,
-  },
-  {
-    id: 3,
-    img: "/img/cat/home-1-cate3.jpg",
-    title: "Air conditioner",
-    count: 25,
-  },
-  {
-    id: 4,
-    img: "/img/cat/home-1-cate4.jpg",
-    title: "Ev charging plug",
-    count: 25,
-  },
-  {
-    id: 5,
-    img: "/img/cat/home-1-cate5.jpg",
-    title: "DVD player slot",
-    count: 5,
-  },
-  { id: 6, img: "/img/cat/home-1-cate6.jpg", title: "360 camera", count: 9 },
-];
+import categoriesData from "../../category.js";
 
 const PrevArrow = ({ onClick }) => (
   <button
@@ -46,7 +13,7 @@ const PrevArrow = ({ onClick }) => (
       left: "-25px",
       top: "50%",
       transform: "translateY(-50%)",
-      zIndex: 10,
+      zIndex: 1,
       background: "#fff",
       border: "none",
       borderRadius: "50%",
@@ -72,7 +39,7 @@ const NextArrow = ({ onClick }) => (
       right: "-25px",
       top: "50%",
       transform: "translateY(-50%)",
-      zIndex: 10,
+      zIndex: 1,
       background: "#fff",
       border: "none",
       borderRadius: "50%",
@@ -91,6 +58,12 @@ const NextArrow = ({ onClick }) => (
 );
 
 const Category = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    setCategories(categoriesData);
+  }, []);
+
   const settings = {
     dots: false,
     infinite: true,

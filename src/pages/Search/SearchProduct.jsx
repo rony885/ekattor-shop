@@ -73,7 +73,7 @@ const SearchProduct = () => {
                     name="search"
                     placeholder="Search our store"
                   />
-                  <Link to="search.html" className="search-btn">
+                  <Link to="/search" className="search-btn">
                     <i className="fa-solid fa-magnifying-glass"></i>
                   </Link>
                 </form>
@@ -94,12 +94,12 @@ const SearchProduct = () => {
                                     className="pro-img"
                                   >
                                     <img
-                                      src={product.images[0]}
+                                      src={product.img1}
                                       className="img-fluid img1 mobile-img1"
                                       alt={product.title}
                                     />
                                     <img
-                                      src={product.images[1]}
+                                      src={product.img2}
                                       className="img-fluid img2 mobile-img2"
                                       alt={product.title}
                                     />
@@ -156,10 +156,10 @@ const SearchProduct = () => {
                                   <div className="product-price">
                                     <div className="pro-price-box">
                                       <span className="new-price">
-                                        {product.price.new}
+                                        {product.newPrice}
                                       </span>
                                       <span className="old-price">
-                                        {product.price.old}
+                                        {product.oldPrice}
                                       </span>
                                     </div>
                                   </div>

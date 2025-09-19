@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const Header = ({ toggleMenu, toggleMennu, toggleMennuVegaMobile }) => {
   const [isVegaOpen, setIsVegaOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleVegaToggle = () => {
     setIsVegaOpen((prev) => !prev);
@@ -75,7 +76,13 @@ const Header = ({ toggleMenu, toggleMennu, toggleMennuVegaMobile }) => {
                                 placeholder="Find our search"
                                 className="search-input"
                               />
-                              <button type="submit" className="search-btn">
+                              <button
+                                type="submit"
+                                className="search-btn"
+                                onClick={() => {
+                                  navigate("/search");
+                                }}
+                              >
                                 <i className="feather-search"></i>
                               </button>
                             </div>

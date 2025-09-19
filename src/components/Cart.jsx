@@ -536,7 +536,7 @@ const Cart = ({ cartOpen, closeMennu }) => {
               <label className="box-area">
                 <span className="text">
                   I have read and agree with the
-                  <Link to="terms-condition.html">terms &amp; condition.</Link>
+                  <Link to="/terms-condition">terms &amp; condition.</Link>
                 </span>
                 <input type="checkbox" className="cust-checkbox" />
                 <span className="cust-check"></span>
