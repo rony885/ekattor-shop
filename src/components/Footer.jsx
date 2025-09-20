@@ -72,19 +72,19 @@ const Footer = () => {
 
                       <div className="app-code mt-4">
                         <div className="social-icons d-flex gap-3 mt-2">
-                          <Link to="/" className="social-icon">
+                          <Link to="#" className="social-icon">
                             <i className="fa-brands fa-facebook-f"></i>
                           </Link>
-                          <Link to="/" className="social-icon">
+                          <Link to="#" className="social-icon">
                             <i className="fa-brands fa-instagram"></i>
                           </Link>
-                          <Link to="/" className="social-icon">
+                          <Link to="#" className="social-icon">
                             <i className="fa-brands fa-linkedin-in"></i>
                           </Link>
-                          <Link to="/" className="social-icon">
+                          <Link to="#" className="social-icon">
                             <i className="fa-brands fa-x-twitter"></i>
                           </Link>
-                          <Link to="/" className="social-icon">
+                          <Link to="#" className="social-icon">
                             <i className="fa-brands fa-youtube"></i>
                           </Link>
                         </div>
@@ -120,23 +120,21 @@ const Footer = () => {
                           id="footer-help"
                         >
                           <li className="ftlink-li">
-                            <Link to="contact-us.html">Contact us</Link>
+                            <Link to="/contact-us">Contact us</Link>
                           </li>
                           <li className="ftlink-li">
-                            <Link to="terms-condition.html">
+                            <Link to="/terms-condition">
                               Terms & conditions
                             </Link>
                           </li>
                           <li className="ftlink-li">
-                            <Link to="track-page.html">Track your order</Link>
+                            <Link to="/track-page">Track your order</Link>
                           </li>
                           <li className="ftlink-li">
-                            <Link to="shipping-policy.html">
-                              Our guarantee{" "}
-                            </Link>
+                            <Link to="/shipping-policy">Our guarantee </Link>
                           </li>
                           <li className="ftlink-li">
-                            <Link to="pro-tickets.html">Guide des tailles</Link>
+                            <Link to="/pro-tickets">Guide des tailles</Link>
                           </li>
                         </ul>
                       </li>
@@ -174,21 +172,21 @@ const Footer = () => {
                           id="footer-information"
                         >
                           <li className="ftlink-li">
-                            <Link to="about-us.html">About story</Link>
+                            <Link to="/about-us">About story</Link>
                           </li>
                           <li className="ftlink-li">
-                            <Link to="Privacy-policy-2.html">
+                            <Link to="/Privacy-policy-2">
                               Privacy policy
                             </Link>
                           </li>
                           <li className="ftlink-li">
-                            <Link to="return-policy.html">Return policy</Link>
+                            <Link to="/return-policy">Return policy</Link>
                           </li>
                           <li className="ftlink-li">
-                            <Link to="payment-policy.html">Payment policy</Link>
+                            <Link to="/payment-policy">Payment policy</Link>
                           </li>
                           <li className="ftlink-li">
-                            <Link to="collection.html">We our brand</Link>
+                            <Link to="/collection">We our brand</Link>
                           </li>
                         </ul>
                       </li>

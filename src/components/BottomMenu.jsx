@@ -81,7 +81,7 @@ const BottomMenu = () => {
         </li>
         <li className="bottom-menu-wrap">
           <div className="bottom-menu-wrapper">
-            <Link to="wishlist-product.html" className="bottom-menu-wishlist">
+            <Link to="/wishlist-product" className="bottom-menu-wishlist">
               <span className="bottom-menu-icon-wrap">
                 <span className="bottom-menu-icon">
                   <svg

@@ -30,7 +30,6 @@ const OrderHistory = () => {
           <div className="row">
             <div className="col">
               <div className="password-block">
-             
                 <div className="profile-info">
                   <div className="account-profile">
                     <div className="pro-img">
@@ -86,7 +85,7 @@ const OrderHistory = () => {
                     </ul>
                   </div>
                 </div>
-             
+
                 <div className="profile-form order-info">
                   <div className="pro-add-title">
                     <h6>Order</h6>
@@ -134,7 +133,6 @@ const OrderHistory = () => {
                     </tbody>
                   </table>
                 </div>
-             
               </div>
             </div>
           </div>

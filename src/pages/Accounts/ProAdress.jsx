@@ -30,7 +30,6 @@ const ProAdress = () => {
           <div className="row">
             <div className="col">
               <div className="password-block">
-           
                 <div className="profile-info">
                   <div className="account-profile">
                     <div className="pro-img">
@@ -88,7 +87,7 @@ const ProAdress = () => {
                     </ul>
                   </div>
                 </div>
-              
+
                 <div className="profile-form profile-address">
                   <div className="billing-area">
                     <form>
@@ -175,7 +174,6 @@ const ProAdress = () => {
                     </form>
                   </div>
                 </div>
-        
               </div>
             </div>
           </div>
