@@ -15,7 +15,7 @@ const ShopInfo = () => {
                   <div className="collection-info">
                     <div className="collection-image">
                       <img
-                        src="img/banner/sall-banner.jpg"
+                        src="/img/banner/sall-banner.jpg"
                         className="img-fluid"
                         alt="sall-banner"
                       />
@@ -131,12 +131,12 @@ const ShopInfo = () => {
                                     className="pro-img"
                                   >
                                     <img
-                                      src="img/product/home1-pro-1.jpg"
+                                      src="/img/product/home1-pro-1.jpg"
                                       className="img-fluid img1 mobile-img1"
                                       alt="p1"
                                     />
                                     <img
-                                      src="img/product/home1-pro-2.jpg"
+                                      src="/img/product/home1-pro-2.jpg"
                                       className="img-fluid img2 mobile-img2"
                                       alt="p2"
                                     />
@@ -169,7 +169,7 @@ const ShopInfo = () => {
                                       </span>
                                     </Link>
                                     <Link
-                                      to="wishlist-product.html"
+                                      to="/wishlist-product"
                                       className="wishlist"
                                     >
                                       <span className="tooltip-text">
@@ -278,12 +278,12 @@ const ShopInfo = () => {
                                     className="pro-img"
                                   >
                                     <img
-                                      src="img/product/home1-pro-3.jpg"
+                                      src="/img/product/home1-pro-3.jpg"
                                       className="img-fluid img1 mobile-img1"
                                       alt="p1"
                                     />
                                     <img
-                                      src="img/product/home1-pro-4.jpg"
+                                      src="/img/product/home1-pro-4.jpg"
                                       className="img-fluid img2 mobile-img2"
                                       alt="p2"
                                     />
@@ -421,16 +421,16 @@ const ShopInfo = () => {
                               <div className="single-product-wrap">
                                 <div className="product-image banner-hover">
                                   <Link
-                                    to="product-template.html"
+                                    to="/product-template"
                                     className="pro-img"
                                   >
                                     <img
-                                      src="img/product/home1-pro-5.jpg"
+                                      src="/img/product/home1-pro-5.jpg"
                                       className="img-fluid img1 mobile-img1"
                                       alt="p1"
                                     />
                                     <img
-                                      src="img/product/home1-pro-6.jpg"
+                                      src="/img/product/home1-pro-6.jpg"
                                       className="img-fluid img2 mobile-img2"
                                       alt="p2"
                                     />
@@ -463,7 +463,7 @@ const ShopInfo = () => {
                                       </span>
                                     </Link>
                                     <Link
-                                      to="wishlist-product.html"
+                                      to="/wishlist-product"
                                       className="wishlist"
                                     >
                                       <span className="tooltip-text">
@@ -482,7 +482,7 @@ const ShopInfo = () => {
                                     </div>
                                     <div className="product-title">
                                       <h6>
-                                        <Link to="product-template.html">
+                                        <Link to="/product-template">
                                           Pen drivess
                                         </Link>
                                       </h6>
@@ -572,12 +572,12 @@ const ShopInfo = () => {
                                     className="pro-img"
                                   >
                                     <img
-                                      src="img/product/home1-pro-7.jpg"
+                                      src="/img/product/home1-pro-7.jpg"
                                       className="img-fluid img1 mobile-img1"
                                       alt="p1"
                                     />
                                     <img
-                                      src="img/product/home1-pro-8.jpg"
+                                      src="/img/product/home1-pro-8.jpg"
                                       className="img-fluid img2 mobile-img2"
                                       alt="p2"
                                     />
@@ -610,7 +610,7 @@ const ShopInfo = () => {
                                       </span>
                                     </Link>
                                     <Link
-                                      to="wishlist-product.html"
+                                      to="/wishlist-product"
                                       className="wishlist"
                                     >
                                       <span className="tooltip-text">
@@ -629,7 +629,7 @@ const ShopInfo = () => {
                                     </div>
                                     <div className="product-title">
                                       <h6>
-                                        <Link to="product-template.html">
+                                        <Link to="/product-template">
                                           Smart watch
                                         </Link>
                                       </h6>
@@ -680,7 +680,7 @@ const ShopInfo = () => {
                                         </span>
                                       </Link>
                                       <Link
-                                        to="wishlist-product.html"
+                                        to="/wishlist-product"
                                         className="wishlist"
                                       >
                                         <span className="tooltip-text">
@@ -719,12 +719,12 @@ const ShopInfo = () => {
                                     className="pro-img"
                                   >
                                     <img
-                                      src="img/product/home1-pro-9.jpg"
+                                      src="/img/product/home1-pro-9.jpg"
                                       className="img-fluid img1 mobile-img1"
                                       alt="p1"
                                     />
                                     <img
-                                      src="img/product/home1-pro-10.jpg"
+                                      src="/img/product/home1-pro-10.jpg"
                                       className="img-fluid img2 mobile-img2"
                                       alt="p2"
                                     />
@@ -757,7 +757,7 @@ const ShopInfo = () => {
                                       </span>
                                     </Link>
                                     <Link
-                                      to="wishlist-product.html"
+                                      to="/wishlist-product"
                                       className="wishlist"
                                     >
                                       <span className="tooltip-text">
@@ -776,7 +776,7 @@ const ShopInfo = () => {
                                     </div>
                                     <div className="product-title">
                                       <h6>
-                                        <Link to="product-template.html">
+                                        <Link to="/product-template">
                                           Verse earphones
                                         </Link>
                                       </h6>
@@ -866,12 +866,12 @@ const ShopInfo = () => {
                                     className="pro-img"
                                   >
                                     <img
-                                      src="img/product/home1-pro-11.jpg"
+                                      src="/img/product/home1-pro-11.jpg"
                                       className="img-fluid img1 mobile-img1"
                                       alt="p1"
                                     />
                                     <img
-                                      src="img/product/home1-pro-12.jpg"
+                                      src="/img/product/home1-pro-12.jpg"
                                       className="img-fluid img2 mobile-img2"
                                       alt="p2"
                                     />
@@ -904,7 +904,7 @@ const ShopInfo = () => {
                                       </span>
                                     </Link>
                                     <Link
-                                      to="wishlist-product.html"
+                                      to="/wishlist-product"
                                       className="wishlist"
                                     >
                                       <span className="tooltip-text">
@@ -923,7 +923,7 @@ const ShopInfo = () => {
                                     </div>
                                     <div className="product-title">
                                       <h6>
-                                        <Link to="product-template.html">
+                                        <Link to="/product">
                                           Wifro camera
                                         </Link>
                                       </h6>
@@ -974,7 +974,7 @@ const ShopInfo = () => {
                                         </span>
                                       </Link>
                                       <Link
-                                        to="wishlist-product.html"
+                                        to="/wishlist-product"
                                         className="wishlist"
                                       >
                                         <span className="tooltip-text">
@@ -1013,12 +1013,12 @@ const ShopInfo = () => {
                                     className="pro-img"
                                   >
                                     <img
-                                      src="img/product/home1-pro-13.jpg"
+                                      src="/img/product/home1-pro-13.jpg"
                                       className="img-fluid img1 mobile-img1"
                                       alt="p1"
                                     />
                                     <img
-                                      src="img/product/home1-pro-14.jpg"
+                                      src="/img/product/home1-pro-14.jpg"
                                       className="img-fluid img2 mobile-img2"
                                       alt="p2"
                                     />
@@ -1051,7 +1051,7 @@ const ShopInfo = () => {
                                       </span>
                                     </Link>
                                     <Link
-                                      to="wishlist-product.html"
+                                      to="/wishlist-product"
                                       className="wishlist"
                                     >
                                       <span className="tooltip-text">
@@ -1070,7 +1070,7 @@ const ShopInfo = () => {
                                     </div>
                                     <div className="product-title">
                                       <h6>
-                                        <Link to="product-template.html">
+                                        <Link to="/product">
                                           Bluetooth earbuds
                                         </Link>
                                       </h6>
@@ -1121,7 +1121,7 @@ const ShopInfo = () => {
                                         </span>
                                       </Link>
                                       <Link
-                                        to="wishlist-product.html"
+                                        to="/wishlist-product"
                                         className="wishlist"
                                       >
                                         <span className="tooltip-text">
@@ -1156,16 +1156,16 @@ const ShopInfo = () => {
                               <div className="single-product-wrap">
                                 <div className="product-image banner-hover">
                                   <Link
-                                    to="product-template.html"
+                                    to="/product"
                                     className="pro-img"
                                   >
                                     <img
-                                      src="img/product/home1-pro-15.jpg"
+                                      src="/img/product/home1-pro-15.jpg"
                                       className="img-fluid img1 mobile-img1"
                                       alt="p1"
                                     />
                                     <img
-                                      src="img/product/home1-pro-16.jpg"
+                                      src="/img/product/home1-pro-16.jpg"
                                       className="img-fluid img2 mobile-img2"
                                       alt="p2"
                                     />
@@ -1198,7 +1198,7 @@ const ShopInfo = () => {
                                       </span>
                                     </Link>
                                     <Link
-                                      to="wishlist-product.html"
+                                      to="/wishlist-product"
                                       className="wishlist"
                                     >
                                       <span className="tooltip-text">
@@ -1217,7 +1217,7 @@ const ShopInfo = () => {
                                     </div>
                                     <div className="product-title">
                                       <h6>
-                                        <Link to="product-template.html">
+                                        <Link to="/product">
                                           Projector leptop
                                         </Link>
                                       </h6>
@@ -1268,7 +1268,7 @@ const ShopInfo = () => {
                                         </span>
                                       </Link>
                                       <Link
-                                        to="wishlist-product.html"
+                                        to="/wishlist-product"
                                         className="wishlist"
                                       >
                                         <span className="tooltip-text">
@@ -1303,16 +1303,16 @@ const ShopInfo = () => {
                               <div className="single-product-wrap">
                                 <div className="product-image banner-hover">
                                   <Link
-                                    to="product-template.html"
+                                    to="/product"
                                     className="pro-img"
                                   >
                                     <img
-                                      src="img/product/home1-pro-17.jpg"
+                                      src="/img/product/home1-pro-17.jpg"
                                       className="img-fluid img1 mobile-img1"
                                       alt="p1"
                                     />
                                     <img
-                                      src="img/product/home1-pro-18.jpg"
+                                      src="/img/product/home1-pro-18.jpg"
                                       className="img-fluid img2 mobile-img2"
                                       alt="p2"
                                     />
@@ -1345,7 +1345,7 @@ const ShopInfo = () => {
                                       </span>
                                     </Link>
                                     <Link
-                                      to="wishlist-product.html"
+                                      to="/wishlist-product"
                                       className="wishlist"
                                     >
                                       <span className="tooltip-text">
@@ -1364,7 +1364,7 @@ const ShopInfo = () => {
                                     </div>
                                     <div className="product-title">
                                       <h6>
-                                        <Link to="product-template.html">
+                                        <Link to="/product-template">
                                           Refrigerator
                                         </Link>
                                       </h6>
@@ -1415,7 +1415,7 @@ const ShopInfo = () => {
                                         </span>
                                       </Link>
                                       <Link
-                                        to="wishlist-product.html"
+                                        to="/wishlist-product"
                                         className="wishlist"
                                       >
                                         <span className="tooltip-text">
@@ -1450,16 +1450,16 @@ const ShopInfo = () => {
                               <div className="single-product-wrap">
                                 <div className="product-image banner-hover">
                                   <Link
-                                    to="product-template.html"
+                                    to="/product-template"
                                     className="pro-img"
                                   >
                                     <img
-                                      src="img/product/home1-pro-19.jpg"
+                                      src="/img/product/home1-pro-19.jpg"
                                       className="img-fluid img1 mobile-img1"
                                       alt="p1"
                                     />
                                     <img
-                                      src="img/product/home1-pro-20.jpg"
+                                      src="/img/product/home1-pro-20.jpg"
                                       className="img-fluid img2 mobile-img2"
                                       alt="p2"
                                     />
@@ -1492,7 +1492,7 @@ const ShopInfo = () => {
                                       </span>
                                     </Link>
                                     <Link
-                                      to="wishlist-product.html"
+                                      to="/wishlist-product"
                                       className="wishlist"
                                     >
                                       <span className="tooltip-text">
@@ -1511,7 +1511,7 @@ const ShopInfo = () => {
                                     </div>
                                     <div className="product-title">
                                       <h6>
-                                        <Link to="product-template.html">
+                                        <Link to="/product">
                                           New system
                                         </Link>
                                       </h6>
@@ -1562,7 +1562,7 @@ const ShopInfo = () => {
                                         </span>
                                       </Link>
                                       <Link
-                                        to="wishlist-product.html"
+                                        to="/wishlist-product"
                                         className="wishlist"
                                       >
                                         <span className="tooltip-text">
@@ -1601,12 +1601,12 @@ const ShopInfo = () => {
                                     className="pro-img"
                                   >
                                     <img
-                                      src="img/product/home1-pro-21.jpg"
+                                      src="/img/product/home1-pro-21.jpg"
                                       className="img-fluid img1 mobile-img1"
                                       alt="p1"
                                     />
                                     <img
-                                      src="img/product/home1-pro-22.jpg"
+                                      src="/img/product/home1-pro-22.jpg"
                                       className="img-fluid img2 mobile-img2"
                                       alt="p2"
                                     />
@@ -1639,7 +1639,7 @@ const ShopInfo = () => {
                                       </span>
                                     </Link>
                                     <Link
-                                      to="wishlist-product.html"
+                                      to="/wishlist-product"
                                       className="wishlist"
                                     >
                                       <span className="tooltip-text">
@@ -1658,7 +1658,7 @@ const ShopInfo = () => {
                                     </div>
                                     <div className="product-title">
                                       <h6>
-                                        <Link to="product-template.html">
+                                        <Link to="/product">
                                           Avone machine
                                         </Link>
                                       </h6>
@@ -1709,7 +1709,7 @@ const ShopInfo = () => {
                                         </span>
                                       </Link>
                                       <Link
-                                        to="wishlist-product.html"
+                                        to="/wishlist-product"
                                         className="wishlist"
                                       >
                                         <span className="tooltip-text">
@@ -1744,16 +1744,16 @@ const ShopInfo = () => {
                               <div className="single-product-wrap">
                                 <div className="product-image banner-hover">
                                   <Link
-                                    to="product-template.html"
+                                    to="/product"
                                     className="pro-img"
                                   >
                                     <img
-                                      src="img/product/home1-pro-23.jpg"
+                                      src="/img/product/home1-pro-23.jpg"
                                       className="img-fluid img1 mobile-img1"
                                       alt="p1"
                                     />
                                     <img
-                                      src="img/product/home1-pro-24.jpg"
+                                      src="/img/product/home1-pro-24.jpg"
                                       className="img-fluid img2 mobile-img2"
                                       alt="p2"
                                     />
@@ -1786,7 +1786,7 @@ const ShopInfo = () => {
                                       </span>
                                     </Link>
                                     <Link
-                                      to="wishlist-product.html"
+                                      to="/wishlist-product"
                                       className="wishlist"
                                     >
                                       <span className="tooltip-text">
@@ -1805,7 +1805,7 @@ const ShopInfo = () => {
                                     </div>
                                     <div className="product-title">
                                       <h6>
-                                        <Link to="product-template.html">
+                                        <Link to="/product">
                                           Mobile cover
                                         </Link>
                                       </h6>
@@ -1856,7 +1856,7 @@ const ShopInfo = () => {
                                         </span>
                                       </Link>
                                       <Link
-                                        to="wishlist-product.html"
+                                        to="/wishlist-product"
                                         className="wishlist"
                                       >
                                         <span className="tooltip-text">
@@ -2596,7 +2596,7 @@ const ShopInfo = () => {
                     >
                       <span className="sidebar-banner-image">
                         <img
-                          src="img/banner/side-banner.jpg"
+                          src="/img/banner/side-banner.jpg"
                           className="img-fluid"
                           alt="side-banner"
                         />
