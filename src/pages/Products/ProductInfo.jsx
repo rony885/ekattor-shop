@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+import categoriesData from "../../category.js";
 import prodactData from "../../products.js";
 
 const ProductInfo = () => {
+  const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [gridView, setGridView] = useState("3");
+
+  useEffect(() => {
+    setCategories(categoriesData);
+  }, []);
 
   useEffect(() => {
     setProducts(prodactData);
@@ -367,172 +374,28 @@ const ProductInfo = () => {
                                 id="collapse-5"
                               >
                                 <ul className="brand-ul scrollbar">
-                                  <li className="cat-checkbox">
-                                    <label className="checkbox-label">
-                                      <input
-                                        type="checkbox"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="check-name">
-                                        Bluetooth
-                                      </span>
-                                      <span className="count-check">(12)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                  <li className="cat-checkbox">
-                                    <label className="checkbox-label">
-                                      <input
-                                        type="checkbox"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="check-name">
-                                        Earphones
-                                      </span>
-                                      <span className="count-check">(12)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                  <li className="cat-checkbox">
-                                    <label className="checkbox-label 64gb">
-                                      <input
-                                        type="checkbox"
-                                        value="64gb"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="check-name">
-                                        Headphones
-                                      </span>
-                                      <span className="count-check">(12)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                  <li className="cat-checkbox">
-                                    <label className="checkbox-label 500gb">
-                                      <input
-                                        type="checkbox"
-                                        value="500gb"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="check-name">
-                                        Collection
-                                      </span>
-                                      <span className="count-check">(12)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                  <li className="cat-checkbox">
-                                    <label className="checkbox-label 1tb">
-                                      <input
-                                        type="checkbox"
-                                        value="1tb"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="check-name">
-                                        Collection left
-                                      </span>
-                                      <span className="count-check">(12)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                  <li className="cat-checkbox">
-                                    <label className="checkbox-label 2tb">
-                                      <input
-                                        type="checkbox"
-                                        value="2tb"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="check-name">
-                                        Collection list
-                                      </span>
-                                      <span className="count-check">(12)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                  <li className="cat-checkbox">
-                                    <label className="checkbox-label 3tb">
-                                      <input
-                                        type="checkbox"
-                                        value="3tb"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="check-name">
-                                        Collection list left
-                                      </span>
-                                      <span className="count-check">(12)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                  <li className="cat-checkbox">
-                                    <label className="checkbox-label 3tb">
-                                      <input
-                                        type="checkbox"
-                                        value="3tb"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="check-name">
-                                        Collection right
-                                      </span>
-                                      <span className="count-check">(12)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                  <li className="cat-checkbox">
-                                    <label className="checkbox-label 3tb">
-                                      <input
-                                        type="checkbox"
-                                        value="3tb"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="check-name">
-                                        Speaker
-                                      </span>
-                                      <span className="count-check">(12)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                  <li className="cat-checkbox">
-                                    <label className="checkbox-label 3tb">
-                                      <input
-                                        type="checkbox"
-                                        value="3tb"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="check-name">
-                                        360 cemera
-                                      </span>
-                                      <span className="count-check">(12)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                  <li className="cat-checkbox">
-                                    <label className="checkbox-label 3tb">
-                                      <input
-                                        type="checkbox"
-                                        value="3tb"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="check-name">
-                                        DVD player
-                                      </span>
-                                      <span className="count-check">(12)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                  <li className="cat-checkbox">
-                                    <label className="checkbox-label 3tb">
-                                      <input
-                                        type="checkbox"
-                                        value="3tb"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="check-name">
-                                        Air conditioner
-                                      </span>
-                                      <span className="count-check">(12)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
+                                  {categories.map((category) => {
+                                    return (
+                                      <li
+                                        key={category.id}
+                                        className="cat-checkbox"
+                                      >
+                                        <label className="checkbox-label">
+                                          <input
+                                            type="checkbox"
+                                            className="cust-checkbox"
+                                          />
+                                          <span className="check-name">
+                                            {category.title}
+                                          </span>
+                                          <span className="count-check">
+                                            ({category.count})
+                                          </span>
+                                          <span className="cust-check"></span>
+                                        </label>
+                                      </li>
+                                    );
+                                  })}
                                 </ul>
                               </div>
                             </div>
