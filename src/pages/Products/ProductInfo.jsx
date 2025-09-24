@@ -8,6 +8,8 @@ const ProductInfo = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [gridView, setGridView] = useState("3");
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   useEffect(() => {
     setCategories(categoriesData);
@@ -15,10 +17,37 @@ const ProductInfo = () => {
 
   useEffect(() => {
     setProducts(prodactData);
+    setFilteredProducts(prodactData); // initially show all
   }, []);
 
   const handleGridChange = (view) => {
     setGridView(view);
+  };
+
+  // ✅ Handle Category Selection
+  const handleCategoryChange = (categoryTitle) => {
+    if (categoryTitle === "All") {
+      setSelectedCategories([]);
+      setFilteredProducts(products);
+      return;
+    }
+
+    let updatedSelected;
+    if (selectedCategories.includes(categoryTitle)) {
+      updatedSelected = selectedCategories.filter((c) => c !== categoryTitle);
+    } else {
+      updatedSelected = [...selectedCategories, categoryTitle];
+    }
+    setSelectedCategories(updatedSelected);
+
+    if (updatedSelected.length === 0) {
+      setFilteredProducts(products);
+    } else {
+      const filtered = products.filter((p) =>
+        updatedSelected.includes(p.category)
+      );
+      setFilteredProducts(filtered);
+    }
   };
 
   // Open modal with body scroll handling
@@ -374,6 +403,18 @@ const ProductInfo = () => {
                                 id="collapse-5"
                               >
                                 <ul className="brand-ul scrollbar">
+                                  <li className="cat-checkbox">
+                                    <label className="checkbox-label">
+                                      <input
+                                        type="checkbox"
+                                        className="cust-checkbox"
+                                      />
+                                      <span className="check-name">All</span>
+                                      <span className="count-check">(142)</span>
+                                      <span className="cust-check"></span>
+                                    </label>
+                                  </li>
+
                                   {categories.map((category) => {
                                     return (
                                       <li
