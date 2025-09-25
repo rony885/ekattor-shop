@@ -39,6 +39,7 @@ import ProAdress from "./pages/Accounts/ProAdress";
 import ProWishlist from "./pages/Accounts/ProWishlist";
 import BillingInfo from "./pages/Accounts/BillingInfo";
 import Login from "./pages/Accounts/Login";
+import PageTitle from "./components/PageTitle";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -92,11 +93,51 @@ function App() {
         />
         <main id="main-content">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="/product-details" element={<ProductDetails />} />
-            <Route path="/search" element={<SearchProduct />} />
+            <Route
+              path="/"
+              element={
+                <>
+                  <PageTitle title="Home | Ekattor Shop" />
+                  <Home />
+                </>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <>
+                  <PageTitle title="About | Ekattor Shop" />
+                  <About />
+                </>
+              }
+            />
+            <Route
+              path="/product"
+              element={
+                <>
+                  <PageTitle title="Product | Ekattor Shop" />
+                  <Product />
+                </>
+              }
+            />
+            <Route
+              path="/product-details"
+              element={
+                <>
+                  <PageTitle title="Product Details | Ekattor Shop" />
+                  <ProductDetails />
+                </>
+              }
+            />
+            <Route
+              path="/search"
+              element={
+                <>
+                  <PageTitle title="Search Product | Ekattor Shop" />
+                  <SearchProduct />
+                </>
+              }
+            />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog-details" element={<BlogDetails />} />
             <Route path="/wishlist-product" element={<WishlistProduct />} />
