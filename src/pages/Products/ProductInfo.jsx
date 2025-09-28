@@ -17,7 +17,7 @@ const ProductInfo = () => {
 
   useEffect(() => {
     setProducts(prodactData);
-    setFilteredProducts(prodactData); // initially show all
+    setFilteredProducts(prodactData); // initially show all products
   }, []);
 
   const handleGridChange = (view) => {
@@ -25,29 +25,44 @@ const ProductInfo = () => {
   };
 
   // ✅ Handle Category Selection
+  // const handleCategoryChange = (categoryTitle) => {
+  //   if (categoryTitle === "All") {
+  //     setSelectedCategories([]);
+  //     setFilteredProducts(products);
+  //     return;
+  //   }
+
+  //   let updatedSelected;
+  //   if (selectedCategories.includes(categoryTitle)) {
+  //     updatedSelected = selectedCategories.filter((c) => c !== categoryTitle);
+  //   } else {
+  //     updatedSelected = [...selectedCategories, categoryTitle];
+  //   }
+
+  //   setSelectedCategories(updatedSelected);
+
+  //   if (updatedSelected.length === 0) {
+  //     setFilteredProducts(products);
+  //   } else {
+  //     const filtered = products.filter((p) =>
+  //       updatedSelected.includes(p.category)
+  //     );
+  //     setFilteredProducts(filtered);
+  //   }
+  // };
+
   const handleCategoryChange = (categoryTitle) => {
     if (categoryTitle === "All") {
-      setSelectedCategories([]);
+      setSelectedCategories([]); // reset to no category (means show all)
       setFilteredProducts(products);
       return;
     }
 
-    let updatedSelected;
-    if (selectedCategories.includes(categoryTitle)) {
-      updatedSelected = selectedCategories.filter((c) => c !== categoryTitle);
-    } else {
-      updatedSelected = [...selectedCategories, categoryTitle];
-    }
-    setSelectedCategories(updatedSelected);
+    // ✅ Only one category should be active at a time
+    setSelectedCategories([categoryTitle]);
 
-    if (updatedSelected.length === 0) {
-      setFilteredProducts(products);
-    } else {
-      const filtered = products.filter((p) =>
-        updatedSelected.includes(p.category)
-      );
-      setFilteredProducts(filtered);
-    }
+    const filtered = products.filter((p) => p.category === categoryTitle);
+    setFilteredProducts(filtered);
   };
 
   // Open modal with body scroll handling
@@ -197,159 +212,119 @@ const ProductInfo = () => {
                         <div className="collection-wrap">
                           <ul className="product-view-ul">
                             {filteredProducts.length > 0 ? (
-                              products.map((product) => {
-                                return (
-                                  <li
-                                    key={product.id}
-                                    className="pro-item-li coll-li"
-                                  >
-                                    <div className="single-product-wrap">
-                                      <div className="product-image banner-hover">
+                              filteredProducts.map((product) => (
+                                <li
+                                  key={product.id}
+                                  className="pro-item-li coll-li"
+                                >
+                                  <div className="single-product-wrap">
+                                    {/* Product Image */}
+                                    <div className="product-image banner-hover">
+                                      <Link
+                                        to="/product-details"
+                                        className="pro-img"
+                                      >
+                                        <img
+                                          src={product.img1}
+                                          className="img-fluid img1 mobile-img1"
+                                          alt={product.title}
+                                        />
+                                        <img
+                                          src={product.img2}
+                                          className="img-fluid img2 mobile-img2"
+                                          alt={product.title}
+                                        />
+                                      </Link>
+                                      {/* Product Action Buttons */}
+                                      <div className="product-action">
                                         <Link
-                                          to="/product-details"
-                                          className="pro-img"
+                                          className="quickview"
+                                          onClick={() => openModal("quickview")}
                                         >
-                                          <img
-                                            src={product.img1}
-                                            className="img-fluid img1 mobile-img1"
-                                            alt="p1"
-                                          />
-                                          <img
-                                            src={product.img2}
-                                            className="img-fluid img2 mobile-img2"
-                                            alt="p2"
-                                          />
+                                          <span className="tooltip-text">
+                                            Quickview
+                                          </span>
+                                          <span className="pro-action-icon">
+                                            <i className="feather-eye"></i>
+                                          </span>
                                         </Link>
-                                        <div className="product-action">
-                                          <Link
-                                            className="quickview"
-                                            onClick={() =>
-                                              openModal("quickview")
-                                            }
-                                          >
-                                            <span className="tooltip-text">
-                                              Quickview
-                                            </span>
-                                            <span className="pro-action-icon">
-                                              <i className="feather-eye"></i>
-                                            </span>
-                                          </Link>
+                                        <Link
+                                          to="#add-to-cart"
+                                          className="add-to-cart"
+                                        >
+                                          <span className="tooltip-text">
+                                            Add to cart
+                                          </span>
+                                          <span className="pro-action-icon">
+                                            <i className="feather-shopping-bag"></i>
+                                          </span>
+                                        </Link>
+                                        <Link
+                                          to="/wishlist-product"
+                                          className="wishlist"
+                                        >
+                                          <span className="tooltip-text">
+                                            Wishlist
+                                          </span>
+                                          <span className="pro-action-icon">
+                                            <i className="feather-heart"></i>
+                                          </span>
+                                        </Link>
+                                      </div>
+                                    </div>
 
-                                          <Link
-                                            to="#add-to-cart"
-                                            className="add-to-cart"
-                                            // data-bs-toggle="modal"
-                                            // data-bs-target="#add-to-cart"
-                                          >
-                                            <span className="tooltip-text">
-                                              Add to cart
+                                    {/* Product Info */}
+                                    <div className="product-caption">
+                                      <div className="product-content">
+                                        <div className="product-sub-title">
+                                          <span>{product.subtitle}</span>
+                                        </div>
+                                        <div className="product-title">
+                                          <h6>
+                                            <Link to="/product-details">
+                                              {product.title}
+                                            </Link>
+                                          </h6>
+                                        </div>
+                                        <div className="product-price">
+                                          <div className="pro-price-box">
+                                            <span className="new-price">
+                                              {product.newPrice}
                                             </span>
-                                            <span className="pro-action-icon">
-                                              <i className="feather-shopping-bag"></i>
+                                            <span className="old-price">
+                                              {product.oldPrice}
                                             </span>
-                                          </Link>
-                                          <Link
-                                            to="/wishlist-product"
-                                            className="wishlist"
-                                          >
-                                            <span className="tooltip-text">
-                                              Wishlist
-                                            </span>
-                                            <span className="pro-action-icon">
-                                              <i className="feather-heart"></i>
-                                            </span>
-                                          </Link>
+                                          </div>
+                                        </div>
+                                        <div className="product-description">
+                                          <p>{product.description}</p>
                                         </div>
                                       </div>
-                                      <div className="product-caption">
-                                        <div className="product-content">
-                                          <div className="product-sub-title">
-                                            <span>{product.subtitle}</span>
-                                          </div>
-                                          <div className="product-title">
-                                            <h6>
-                                              <Link to="/product-details">
-                                                {product.title}
-                                              </Link>
-                                            </h6>
-                                          </div>
-                                          <div className="product-price">
-                                            <div className="pro-price-box">
-                                              <span className="new-price">
-                                                {product.newPrice}
-                                              </span>
-                                              <span className="old-price">
-                                                {product.oldPrice}
-                                              </span>
-                                            </div>
-                                          </div>
-                                          <div className="product-description">
-                                            <p>{product.description}</p>
-                                          </div>
-                                          <div className="product-action">
-                                            <Link
-                                              to="#quickview"
-                                              className="quickview"
-                                              data-bs-toggle="modal"
-                                              data-bs-target="#quickview"
-                                            >
-                                              <span className="tooltip-text">
-                                                Quickview
-                                              </span>
-                                              <span className="pro-action-icon">
-                                                <i className="feather-eye"></i>
-                                              </span>
-                                            </Link>
-                                            <Link
-                                              to="#add-to-cart"
-                                              className="add-to-cart"
-                                              data-bs-toggle="modal"
-                                              data-bs-target="#add-to-cart"
-                                            >
-                                              <span className="tooltip-text">
-                                                Add to cart
-                                              </span>
-                                              <span className="pro-action-icon">
-                                                <i className="feather-shopping-bag"></i>
-                                              </span>
-                                            </Link>
-                                            <Link
-                                              to="/wishlist-product"
-                                              className="wishlist"
-                                            >
-                                              <span className="tooltip-text">
-                                                Wishlist
-                                              </span>
-                                              <span className="pro-action-icon">
-                                                <i className="feather-heart"></i>
-                                              </span>
-                                            </Link>
-                                          </div>
+
+                                      {/* Product Rating */}
+                                      <div className="pro-label-retting">
+                                        <div className="product-ratting">
+                                          <span className="pro-ratting">
+                                            {Array.from({
+                                              length: product.rating,
+                                            }).map((_, i) => (
+                                              <i
+                                                key={i}
+                                                className="fa-solid fa-star"
+                                              ></i>
+                                            ))}
+                                          </span>
                                         </div>
-                                        <div className="pro-label-retting">
-                                          <div className="product-ratting">
-                                            <span className="pro-ratting">
-                                              {Array.from({
-                                                length: product.rating,
-                                              }).map((_, i) => (
-                                                <i
-                                                  key={i}
-                                                  className="fa-solid fa-star"
-                                                ></i>
-                                              ))}
-                                            </span>
-                                          </div>
-                                          <div className="product-label pro-new-sale">
-                                            <span className="product-label-title">
-                                              Sale<span>{product.sale}</span>
-                                            </span>
-                                          </div>
+                                        <div className="product-label pro-new-sale">
+                                          <span className="product-label-title">
+                                            Sale<span>{product.sale}</span>
+                                          </span>
                                         </div>
                                       </div>
                                     </div>
-                                  </li>
-                                );
-                              })
+                                  </div>
+                                </li>
+                              ))
                             ) : (
                               <p>No products found.</p>
                             )}
@@ -409,8 +384,19 @@ const ProductInfo = () => {
                                 id="collapse-5"
                               >
                                 <ul className="brand-ul scrollbar">
+                                  {/* All Option */}
                                   <li className="cat-checkbox">
                                     <label className="checkbox-label">
+                                      {/* <input
+                                        type="checkbox"
+                                        className="cust-checkbox"
+                                        checked={
+                                          selectedCategories.length === 0
+                                        }
+                                        onChange={() =>
+                                          handleCategoryChange("All")
+                                        }
+                                      /> */}
                                       <input
                                         type="checkbox"
                                         className="cust-checkbox"
@@ -422,7 +408,6 @@ const ProductInfo = () => {
                                         }
                                       />
                                       <span className="check-name">All</span>
-                                      {/* <span className="count-check">(142)</span> */}
                                       <span className="count-check">
                                         ({products.length})
                                       </span>
@@ -430,36 +415,61 @@ const ProductInfo = () => {
                                     </label>
                                   </li>
 
-                                  {categories.map((category) => {
-                                    return (
-                                      <li
-                                        key={category.id}
-                                        className="cat-checkbox"
-                                      >
-                                        <label className="checkbox-label">
-                                          <input
-                                            type="checkbox"
-                                            className="cust-checkbox"
-                                            checked={selectedCategories.includes(
-                                              category.title
-                                            )}
-                                            onChange={() =>
-                                              handleCategoryChange(
-                                                category.title
-                                              )
-                                            }
-                                          />
-                                          <span className="check-name">
-                                            {category.title}
-                                          </span>
-                                          <span className="count-check">
-                                            ({category.count})
-                                          </span>
-                                          <span className="cust-check"></span>
-                                        </label>
-                                      </li>
-                                    );
-                                  })}
+                                  {/* Category Options */}
+                                  {/* {categories.map((category) => (
+                                    <li
+                                      key={category.id}
+                                      className="cat-checkbox"
+                                    >
+                                      <label className="checkbox-label">
+                                        <input
+                                          type="checkbox"
+                                          className="cust-checkbox"
+                                          checked={selectedCategories.includes(
+                                            category.title
+                                          )}
+                                          onChange={() =>
+                                            handleCategoryChange(category.title)
+                                          }
+                                        />
+                                        <span className="check-name">
+                                          {category.title}
+                                        </span>
+                                        <span className="count-check">
+                                          ({category.count})
+                                        </span>
+                                        <span className="cust-check"></span>
+                                      </label>
+                                    </li>
+                                  ))} */}
+
+                                  {categories.map((category) => (
+                                    <li
+                                      key={category.id}
+                                      className="cat-checkbox"
+                                    >
+                                      <label className="checkbox-label">
+                                        <input
+                                          type="checkbox"
+                                          className="cust-checkbox"
+                                          checked={
+                                            selectedCategories[0] ===
+                                            category.title
+                                          } // ✅ Only one active
+                                          onChange={() =>
+                                            handleCategoryChange(category.title)
+                                          }
+                                        />
+                                        <span className="check-name">
+                                          {category.title}
+                                        </span>
+                                        <span className="count-check">
+                                          ({category.count})
+                                        </span>
+                                        <span className="cust-check"></span>
+                                      </label>
+                                    </li>
+                                  ))}
                                 </ul>
                               </div>
                             </div>

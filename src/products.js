@@ -1,6 +1,7 @@
 const products = [
   {
     id: 1,
+    category: "Wireless earbuds", // must match categories.title
     img1: "img/product/home1-pro-1.jpg",
     img2: "img/product/home1-pro-2.jpg",
     subtitle: "Wireless device",
@@ -14,6 +15,7 @@ const products = [
   },
   {
     id: 2,
+    category: "Portable speaker",
     img1: "img/product/home1-pro-3.jpg",
     img2: "img/product/home1-pro-4.jpg",
     subtitle: "Waterproof",
@@ -27,6 +29,7 @@ const products = [
   },
   {
     id: 3,
+    category: "Air conditioner",
     img1: "img/product/home1-pro-5.jpg",
     img2: "img/product/home1-pro-6.jpg",
     subtitle: "Live program",
@@ -40,6 +43,7 @@ const products = [
   },
   {
     id: 4,
+    category: "Ev charging plug",
     img1: "img/product/home1-pro-7.jpg",
     img2: "img/product/home1-pro-8.jpg",
     subtitle: "Waterproof watch",
@@ -53,6 +57,7 @@ const products = [
   },
   {
     id: 5,
+    category: "DVD player slot",
     img1: "img/product/home1-pro-1.jpg",
     img2: "img/product/home1-pro-2.jpg",
     subtitle: "Wireless device",
@@ -66,6 +71,7 @@ const products = [
   },
   {
     id: 6,
+    category: "360 camera",
     img1: "img/product/home1-pro-3.jpg",
     img2: "img/product/home1-pro-4.jpg",
     subtitle: "Waterproof",
@@ -79,6 +85,7 @@ const products = [
   },
   {
     id: 7,
+    category: "Wireless earbuds",
     img1: "img/product/home1-pro-5.jpg",
     img2: "img/product/home1-pro-6.jpg",
     subtitle: "Live program",
@@ -92,6 +99,7 @@ const products = [
   },
   {
     id: 8,
+    category: "Portable speaker",
     img1: "img/product/home1-pro-7.jpg",
     img2: "img/product/home1-pro-8.jpg",
     subtitle: "Waterproof watch",
