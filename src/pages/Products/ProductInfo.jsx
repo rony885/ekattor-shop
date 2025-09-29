@@ -189,7 +189,6 @@ const ProductInfo = () => {
                                   className="pro-item-li coll-li"
                                 >
                                   <div className="single-product-wrap">
-                                    {/* Product Image */}
                                     <div className="product-image banner-hover">
                                       <Link
                                         to="/product-details"
@@ -206,7 +205,7 @@ const ProductInfo = () => {
                                           alt={product.title}
                                         />
                                       </Link>
-                                      {/* Product Action Buttons */}
+
                                       <div className="product-action">
                                         <Link
                                           className="quickview"
@@ -244,7 +243,6 @@ const ProductInfo = () => {
                                       </div>
                                     </div>
 
-                                    {/* Product Info */}
                                     <div className="product-caption">
                                       <div className="product-content">
                                         <div className="product-sub-title">
@@ -272,7 +270,6 @@ const ProductInfo = () => {
                                         </div>
                                       </div>
 
-                                      {/* Product Rating */}
                                       <div className="pro-label-retting">
                                         <div className="product-ratting">
                                           <span className="pro-ratting">
