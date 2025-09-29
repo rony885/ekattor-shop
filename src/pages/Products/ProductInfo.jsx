@@ -13,9 +13,6 @@ const ProductInfo = () => {
 
   useEffect(() => {
     setCategories(categoriesData);
-  }, []);
-
-  useEffect(() => {
     setProducts(prodactData);
     setFilteredProducts(prodactData); // initially show all products
   }, []);
@@ -25,32 +22,6 @@ const ProductInfo = () => {
   };
 
   // ✅ Handle Category Selection
-  // const handleCategoryChange = (categoryTitle) => {
-  //   if (categoryTitle === "All") {
-  //     setSelectedCategories([]);
-  //     setFilteredProducts(products);
-  //     return;
-  //   }
-
-  //   let updatedSelected;
-  //   if (selectedCategories.includes(categoryTitle)) {
-  //     updatedSelected = selectedCategories.filter((c) => c !== categoryTitle);
-  //   } else {
-  //     updatedSelected = [...selectedCategories, categoryTitle];
-  //   }
-
-  //   setSelectedCategories(updatedSelected);
-
-  //   if (updatedSelected.length === 0) {
-  //     setFilteredProducts(products);
-  //   } else {
-  //     const filtered = products.filter((p) =>
-  //       updatedSelected.includes(p.category)
-  //     );
-  //     setFilteredProducts(filtered);
-  //   }
-  // };
-
   const handleCategoryChange = (categoryTitle) => {
     if (categoryTitle === "All") {
       setSelectedCategories([]); // reset to no category (means show all)
@@ -384,19 +355,8 @@ const ProductInfo = () => {
                                 id="collapse-5"
                               >
                                 <ul className="brand-ul scrollbar">
-                                  {/* All Option */}
                                   <li className="cat-checkbox">
                                     <label className="checkbox-label">
-                                      {/* <input
-                                        type="checkbox"
-                                        className="cust-checkbox"
-                                        checked={
-                                          selectedCategories.length === 0
-                                        }
-                                        onChange={() =>
-                                          handleCategoryChange("All")
-                                        }
-                                      /> */}
                                       <input
                                         type="checkbox"
                                         className="cust-checkbox"
@@ -415,34 +375,6 @@ const ProductInfo = () => {
                                     </label>
                                   </li>
 
-                                  {/* Category Options */}
-                                  {/* {categories.map((category) => (
-                                    <li
-                                      key={category.id}
-                                      className="cat-checkbox"
-                                    >
-                                      <label className="checkbox-label">
-                                        <input
-                                          type="checkbox"
-                                          className="cust-checkbox"
-                                          checked={selectedCategories.includes(
-                                            category.title
-                                          )}
-                                          onChange={() =>
-                                            handleCategoryChange(category.title)
-                                          }
-                                        />
-                                        <span className="check-name">
-                                          {category.title}
-                                        </span>
-                                        <span className="count-check">
-                                          ({category.count})
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                  ))} */}
-
                                   {categories.map((category) => (
                                     <li
                                       key={category.id}
@@ -455,7 +387,7 @@ const ProductInfo = () => {
                                           checked={
                                             selectedCategories[0] ===
                                             category.title
-                                          } // ✅ Only one active
+                                          }
                                           onChange={() =>
                                             handleCategoryChange(category.title)
                                           }
