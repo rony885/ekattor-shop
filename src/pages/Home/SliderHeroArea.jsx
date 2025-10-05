@@ -69,7 +69,6 @@ const SliderHeroArea = () => {
           {slides.map((slide) => (
             <div key={slide.id} className="item">
               <div className="slider-image-info">
-                {/* Images */}
                 <div className="slider-image">
                   <img
                     src={slide.deskImg}
@@ -83,7 +82,6 @@ const SliderHeroArea = () => {
                   />
                 </div>
 
-              
                 <div className="container slider-info-content">
                   <div className="row">
                     <div className="col">
