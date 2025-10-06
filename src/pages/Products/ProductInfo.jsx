@@ -10,6 +10,8 @@ const ProductInfo = () => {
   const [gridView, setGridView] = useState("3");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(5000);
 
   useEffect(() => {
     setCategories(categoriesData);
@@ -35,6 +37,29 @@ const ProductInfo = () => {
     const filtered = products.filter((p) => p.category === categoryTitle);
     setFilteredProducts(filtered);
   };
+
+  const handlePriceChange = (e, type) => {
+    const value = Number(e.target.value);
+    if (type === "min") setMinPrice(value);
+    else setMaxPrice(value);
+  };
+
+  useEffect(() => {
+    let filtered = [...products];
+
+    // ✅ Filter by category
+    if (selectedCategories.length > 0) {
+      filtered = filtered.filter((p) => p.category === selectedCategories[0]);
+    }
+
+    // ✅ Filter by price range
+    filtered = filtered.filter((p) => {
+      const price = Number(p.newPrice.replace(/[^\d.-]/g, "")); // remove ৳ or $
+      return price >= minPrice && price <= maxPrice;
+    });
+
+    setFilteredProducts(filtered);
+  }, [minPrice, maxPrice, selectedCategories, products]);
 
   // Open modal with body scroll handling
   const openModal = (modalId) => {
@@ -433,6 +458,7 @@ const ProductInfo = () => {
                                 </span>
                               </div>
                             </div>
+
                             <div className="shop-sidebar sidebar-price">
                               <h6 className="shop-title">Price</h6>
                               <Link
@@ -444,10 +470,24 @@ const ProductInfo = () => {
                               </Link>
                               <div className="filter-info">
                                 <span className="shop-price">
-                                  The highest price is $89.00
+                                  The highest price is ৳10,680.00
                                 </span>
-                                <facet-remove>
+                                {/* <facet-remove>
                                   <Link to="/product" className="reset-text">
+                                    Reset
+                                  </Link>
+                                </facet-remove> */}
+                                <facet-remove>
+                                  <Link
+                                    to="#"
+                                    className="reset-text"
+                                    onClick={() => {
+                                      setMinPrice(0);
+                                      setMaxPrice(5000);
+                                      setSelectedCategories([]);
+                                      setFilteredProducts(products);
+                                    }}
+                                  >
                                     Reset
                                   </Link>
                                 </facet-remove>
@@ -458,12 +498,12 @@ const ProductInfo = () => {
                                 id="collapse-3"
                               >
                                 <price-range className="price-range">
-                                  <div className="price-range-group group-range">
+                                  {/* <div className="price-range-group group-range">
                                     <input
                                       type="range"
                                       className="range"
                                       min="0"
-                                      max="89"
+                                      max="5000"
                                       defaultValue="0"
                                       id="range1"
                                     />
@@ -471,17 +511,40 @@ const ProductInfo = () => {
                                       type="range"
                                       className="range"
                                       min="0"
-                                      max="89"
-                                      defaultValue="89"
+                                      max="5000"
+                                      defaultValue="5000"
                                       id="range2"
                                     />
+                                  </div> */}
+                                  <div className="price-range-group group-range">
+                                    <input
+                                      type="range"
+                                      className="range"
+                                      min="0"
+                                      max="5000"
+                                      value={minPrice}
+                                      onChange={(e) =>
+                                        handlePriceChange(e, "min")
+                                      }
+                                    />
+                                    <input
+                                      type="range"
+                                      className="range"
+                                      min="0"
+                                      max="5000"
+                                      value={maxPrice}
+                                      onChange={(e) =>
+                                        handlePriceChange(e, "max")
+                                      }
+                                    />
                                   </div>
+
                                   <div className="price-input-group group-input">
                                     <div className="price-range-input input-price">
                                       <label className="label-text">From</label>
-                                      <span className="price-value">$</span>
+                                      <span className="price-value">৳</span>
                                       <span id="demo1" className="price-field">
-                                        0
+                                        {minPrice}
                                       </span>
                                     </div>
                                     <span className="price-range-delimeter">
@@ -489,235 +552,16 @@ const ProductInfo = () => {
                                     </span>
                                     <div className="price-range-input input-price">
                                       <label className="label-text">To</label>
-                                      <span className="price-value">$</span>
+                                      <span className="price-value">৳</span>
                                       <span id="demo2" className="price-field">
-                                        89
+                                        {maxPrice}
                                       </span>
                                     </div>
                                   </div>
                                 </price-range>
                               </div>
-
-                              {/* <!-- More-filters start --> */}
-                              <div className="shop-sidebar sidebar-open">
-                                <h6 className="shop-title">More filters</h6>
-                                <Link
-                                  to="#collapse-6"
-                                  data-bs-toggle="collapse"
-                                  className="shop-title shop-title-lg"
-                                >
-                                  More filters
-                                  <i className="fa fa-angle-down"></i>
-                                </Link>
-                                <div className="filter-info">
-                                  <span className="shop-price">0 selected</span>
-                                  <facet-remove>
-                                    <Link to="/product" className="reset-text">
-                                      Reset
-                                    </Link>
-                                  </facet-remove>
-                                </div>
-                                <div
-                                  className="collapse shop-element shop-flavor"
-                                  id="collapse-6"
-                                >
-                                  <ul className="brand-ul scrollbar">
-                                    <li className="cat-checkbox">
-                                      <label className="checkbox-label 16gb">
-                                        <input
-                                          type="checkbox"
-                                          value="16gb"
-                                          className="cust-checkbox"
-                                        />
-                                        <span className="check-name">
-                                          Air conditioner
-                                        </span>
-                                        <span className="count-check">
-                                          (12)
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                    <li className="cat-checkbox">
-                                      <label className="checkbox-label 32gb">
-                                        <input
-                                          type="checkbox"
-                                          value="32gb"
-                                          className="cust-checkbox"
-                                        />
-                                        <span className="check-name">
-                                          Portable speaker
-                                        </span>
-                                        <span className="count-check">
-                                          (12)
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                    <li className="cat-checkbox">
-                                      <label className="checkbox-label 64gb">
-                                        <input
-                                          type="checkbox"
-                                          value="64gb"
-                                          className="cust-checkbox"
-                                        />
-                                        <span className="check-name">
-                                          Wireless earbuds
-                                        </span>
-                                        <span className="count-check">
-                                          (12)
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                    <li className="cat-checkbox">
-                                      <label className="checkbox-label 500gb">
-                                        <input
-                                          type="checkbox"
-                                          value="500gb"
-                                          className="cust-checkbox"
-                                        />
-                                        <span className="check-name">
-                                          Ev charging plug
-                                        </span>
-                                        <span className="count-check">
-                                          (12)
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                    <li className="cat-checkbox">
-                                      <label className="checkbox-label 1tb">
-                                        <input
-                                          type="checkbox"
-                                          value="1tb"
-                                          className="cust-checkbox"
-                                        />
-                                        <span className="check-name">
-                                          DVD player slot
-                                        </span>
-                                        <span className="count-check">
-                                          (12)
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                    <li className="cat-checkbox">
-                                      <label className="checkbox-label 2tb">
-                                        <input
-                                          type="checkbox"
-                                          value="2tb"
-                                          className="cust-checkbox"
-                                        />
-                                        <span className="check-name">
-                                          Verse earphones
-                                        </span>
-                                        <span className="count-check">
-                                          (12)
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                    <li className="cat-checkbox">
-                                      <label className="checkbox-label 3tb">
-                                        <input
-                                          type="checkbox"
-                                          value="3tb"
-                                          className="cust-checkbox"
-                                        />
-                                        <span className="check-name">
-                                          Video shoot drone
-                                        </span>
-                                        <span className="count-check">
-                                          (12)
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                    <li className="cat-checkbox">
-                                      <label className="checkbox-label 3tb">
-                                        <input
-                                          type="checkbox"
-                                          value="3tb"
-                                          className="cust-checkbox"
-                                        />
-                                        <span className="check-name">
-                                          Collection right
-                                        </span>
-                                        <span className="count-check">
-                                          (12)
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                    <li className="cat-checkbox">
-                                      <label className="checkbox-label 3tb">
-                                        <input
-                                          type="checkbox"
-                                          value="3tb"
-                                          className="cust-checkbox"
-                                        />
-                                        <span className="check-name">
-                                          Wifro wi-fi camera
-                                        </span>
-                                        <span className="count-check">
-                                          (12)
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                    <li className="cat-checkbox">
-                                      <label className="checkbox-label 3tb">
-                                        <input
-                                          type="checkbox"
-                                          value="3tb"
-                                          className="cust-checkbox"
-                                        />
-                                        <span className="check-name">
-                                          Movie projector S8
-                                        </span>
-                                        <span className="count-check">
-                                          (12)
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                    <li className="cat-checkbox">
-                                      <label className="checkbox-label 3tb">
-                                        <input
-                                          type="checkbox"
-                                          value="3tb"
-                                          className="cust-checkbox"
-                                        />
-                                        <span className="check-name">
-                                          Wireless headphones
-                                        </span>
-                                        <span className="count-check">
-                                          (12)
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                    <li className="cat-checkbox">
-                                      <label className="checkbox-label 3tb">
-                                        <input
-                                          type="checkbox"
-                                          value="3tb"
-                                          className="cust-checkbox"
-                                        />
-                                        <span className="check-name">
-                                          Stylish for trimmer
-                                        </span>
-                                        <span className="count-check">
-                                          (12)
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
                             </div>
+
                             <div className="shop-sidebar sidebar-product">
                               <h6 className="shop-title">Product type</h6>
                               <Link
