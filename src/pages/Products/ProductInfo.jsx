@@ -472,11 +472,6 @@ const ProductInfo = () => {
                                 <span className="shop-price">
                                   The highest price is ৳10,680.00
                                 </span>
-                                {/* <facet-remove>
-                                  <Link to="/product" className="reset-text">
-                                    Reset
-                                  </Link>
-                                </facet-remove> */}
                                 <facet-remove>
                                   <Link
                                     to="#"
@@ -498,24 +493,6 @@ const ProductInfo = () => {
                                 id="collapse-3"
                               >
                                 <price-range className="price-range">
-                                  {/* <div className="price-range-group group-range">
-                                    <input
-                                      type="range"
-                                      className="range"
-                                      min="0"
-                                      max="5000"
-                                      defaultValue="0"
-                                      id="range1"
-                                    />
-                                    <input
-                                      type="range"
-                                      className="range"
-                                      min="0"
-                                      max="5000"
-                                      defaultValue="5000"
-                                      id="range2"
-                                    />
-                                  </div> */}
                                   <div className="price-range-group group-range">
                                     <input
                                       type="range"

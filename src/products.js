@@ -129,6 +129,7 @@ const products = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
     rating: 5,
     sale: "20%",
+    brand: "Electon",
   },
   {
     id: 2,
@@ -143,6 +144,7 @@ const products = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
     rating: 5,
     sale: "14%",
+    brand: "AudioMax",
   },
   {
     id: 3,
@@ -157,6 +159,7 @@ const products = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
     rating: 5,
     sale: "22%",
+    brand: "CoolAir",
   },
   {
     id: 4,
@@ -171,6 +174,7 @@ const products = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
     rating: 5,
     sale: "30%",
+    brand: "VoltPro",
   },
   {
     id: 5,
@@ -185,6 +189,7 @@ const products = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
     rating: 5,
     sale: "20%",
+    brand: "Electon",
   },
   {
     id: 6,
@@ -199,6 +204,7 @@ const products = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
     rating: 5,
     sale: "14%",
+    brand: "Vision360",
   },
   {
     id: 7,
@@ -213,6 +219,7 @@ const products = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
     rating: 5,
     sale: "22%",
+    brand: "Electon",
   },
   {
     id: 8,
@@ -227,6 +234,7 @@ const products = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",
     rating: 5,
     sale: "30%",
+    brand: "AudioMax",
   },
 ];
 
