@@ -10,57 +10,70 @@ const ProductInfo = () => {
   const [gridView, setGridView] = useState("3");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedBrand, setSelectedBrand] = useState("All");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(5000);
-
-  useEffect(() => {
-    setCategories(categoriesData);
-    setProducts(prodactData);
-    setFilteredProducts(prodactData); // initially show all products
-  }, []);
 
   const handleGridChange = (view) => {
     setGridView(view);
   };
 
-  // ✅ Handle Category Selection
+  useEffect(() => {
+    setCategories(categoriesData);
+    setProducts(prodactData);
+    setFilteredProducts(prodactData); // initially show all
+  }, []);
+
+  // ✅ Category Filter
   const handleCategoryChange = (categoryTitle) => {
     if (categoryTitle === "All") {
-      setSelectedCategories([]); // reset to no category (means show all)
-      setFilteredProducts(products);
+      setSelectedCategories([]);
       return;
     }
-
-    // ✅ Only one category should be active at a time
     setSelectedCategories([categoryTitle]);
-
-    const filtered = products.filter((p) => p.category === categoryTitle);
-    setFilteredProducts(filtered);
   };
 
+  // ✅ Brand Filter
+  const handleBrandChange = (brand) => {
+    if (brand === "All") {
+      setSelectedBrand("All");
+      return;
+    }
+    setSelectedBrand(brand);
+  };
+
+  // ✅ Price Filter
   const handlePriceChange = (e, type) => {
     const value = Number(e.target.value);
     if (type === "min") setMinPrice(value);
     else setMaxPrice(value);
   };
 
+  // ✅ Main filtering logic
   useEffect(() => {
     let filtered = [...products];
 
-    // ✅ Filter by category
+    // Category filter
     if (selectedCategories.length > 0) {
       filtered = filtered.filter((p) => p.category === selectedCategories[0]);
     }
 
-    // ✅ Filter by price range
+    // Brand filter
+    if (selectedBrand !== "All") {
+      filtered = filtered.filter((p) => p.brand === selectedBrand);
+    }
+
+    // Price filter
     filtered = filtered.filter((p) => {
-      const price = Number(p.newPrice.replace(/[^\d.-]/g, "")); // remove ৳ or $
+      const price = Number(p.newPrice.replace(/[^\d.-]/g, ""));
       return price >= minPrice && price <= maxPrice;
     });
 
     setFilteredProducts(filtered);
-  }, [minPrice, maxPrice, selectedCategories, products]);
+  }, [selectedCategories, selectedBrand, minPrice, maxPrice, products]);
 
+  // ✅ Extract all unique brands
+  const uniqueBrands = ["All", ...new Set(products.map((p) => p.brand))];
   // Open modal with body scroll handling
   const openModal = (modalId) => {
     const modalEl = document.getElementById(modalId);
@@ -539,47 +552,6 @@ const ProductInfo = () => {
                               </div>
                             </div>
 
-                            <div className="shop-sidebar sidebar-product">
-                              <h6 className="shop-title">Product type</h6>
-                              <Link
-                                to="#collapse-2"
-                                data-bs-toggle="collapse"
-                                className="shop-title shop-title-lg"
-                              >
-                                Product type
-                              </Link>
-                              <div className="filter-info">
-                                <span className="shop-price no-js-hidden">
-                                  0 selected
-                                </span>
-                                <facet-remove>
-                                  <Link to="/product" className="reset-text">
-                                    Reset
-                                  </Link>
-                                </facet-remove>
-                              </div>
-                              <div
-                                className="collapse filter-element"
-                                id="collapse-2"
-                              >
-                                <ul className="brand-ul scrollbar">
-                                  <li className="brand-li">
-                                    <label className="cust-checkbox-label">
-                                      <input
-                                        type="checkbox"
-                                        name="cust-checkbox"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="filter-name">
-                                        Electon
-                                      </span>
-                                      <span className="count-check">(23)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
                             <div className="shop-sidebar sidebar-wedget">
                               <h6 className="shop-title">Availability</h6>
                               <Link
@@ -637,30 +609,28 @@ const ProductInfo = () => {
                                 </ul>
                               </div>
                             </div>
+
                             <div className="shop-sidebar sidebar-wedget">
                               <h6 className="shop-title">Brand</h6>
-                              <Link
-                                to="#reset"
-                                data-bs-toggle="collapse"
-                                className="shop-title shop-title-lg"
-                              >
-                                Brand
-                              </Link>
                               <div className="filter-info">
-                                <span className="shop-price no-js-hidden">
-                                  0 selected
+                                <span className="shop-price">
+                                  {selectedBrand === "All"
+                                    ? "All selected"
+                                    : selectedBrand}
                                 </span>
-                                <facet-remove>
-                                  <Link to="/product" className="reset-text">
-                                    Reset
-                                  </Link>
-                                </facet-remove>
+                                <Link
+                                  to="#"
+                                  className="reset-text"
+                                  onClick={() => setSelectedBrand("All")}
+                                >
+                                  Reset
+                                </Link>
                               </div>
                               <div
                                 className="collapse filter-element"
                                 id="reset"
                               >
-                                <ul className="brand-ul scrollbar">
+                                {/* <ul className="brand-ul scrollbar">
                                   <li className="brand-li">
                                     <label className="cust-checkbox-label">
                                       <input
@@ -669,12 +639,60 @@ const ProductInfo = () => {
                                         className="cust-checkbox"
                                       />
                                       <span className="filter-name">
-                                        Electon
+                                        {"All"}
                                       </span>
                                       <span className="count-check">(23)</span>
                                       <span className="cust-check"></span>
                                     </label>
                                   </li>
+                                  {products.map((bnd) => {
+                                    return (
+                                      <li className="brand-li">
+                                        <label className="cust-checkbox-label">
+                                          <input
+                                            type="checkbox"
+                                            name="cust-checkbox"
+                                            className="cust-checkbox"
+                                          />
+                                          <span className="filter-name">
+                                            {bnd.brand}
+                                       
+                                          </span>
+                                          <span className="count-check">
+                                            (23)
+                                          </span>
+                                          <span className="cust-check"></span>
+                                        </label>
+                                      </li>
+                                    );
+                                  })}
+                                </ul> */}
+                                <ul className="brand-ul scrollbar">
+                                  {uniqueBrands.map((brand, i) => (
+                                    <li className="brand-li" key={i}>
+                                      <label className="cust-checkbox-label">
+                                        <input
+                                          type="checkbox"
+                                          className="cust-checkbox"
+                                          checked={selectedBrand === brand}
+                                          onChange={() =>
+                                            handleBrandChange(brand)
+                                          }
+                                        />
+                                        <span className="filter-name">
+                                          {brand}
+                                        </span>
+                                        <span className="count-check">
+                                          (
+                                          {products.filter(
+                                            (p) => p.brand === brand
+                                          ).length || products.length}
+                                          )
+                                        </span>
+                                        <span className="cust-check"></span>
+                                      </label>
+                                    </li>
+                                  ))}
                                 </ul>
                               </div>
                             </div>
