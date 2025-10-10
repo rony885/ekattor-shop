@@ -105,7 +105,9 @@ const ProductInfo = () => {
             <div className="pro-grli-wrapper left-side-wrap">
               <div className="pro-grli-wrap product-grid">
                 <div className="collection-img-wrap">
-                  <h6 className="st-title">Collection left (23)</h6>
+                  <h6 className="st-title">
+                    Total Product ({filteredProducts.length})
+                  </h6>
 
                   <div className="collection-info">
                     <div className="collection-image">
@@ -385,6 +387,7 @@ const ProductInfo = () => {
                               >
                                 Categories<i className="fa fa-angle-down"></i>
                               </Link>
+
                               <div
                                 className="collapse show shop-element"
                                 id="collapse-5"
@@ -410,33 +413,42 @@ const ProductInfo = () => {
                                     </label>
                                   </li>
 
-                                  {categories.map((category) => (
-                                    <li
-                                      key={category.id}
-                                      className="cat-checkbox"
-                                    >
-                                      <label className="checkbox-label">
-                                        <input
-                                          type="checkbox"
-                                          className="cust-checkbox"
-                                          checked={
-                                            selectedCategories[0] ===
-                                            category.title
-                                          }
-                                          onChange={() =>
-                                            handleCategoryChange(category.title)
-                                          }
-                                        />
-                                        <span className="check-name">
-                                          {category.title}
-                                        </span>
-                                        <span className="count-check">
-                                          ({category.count})
-                                        </span>
-                                        <span className="cust-check"></span>
-                                      </label>
-                                    </li>
-                                  ))}
+                                  {/* ✅ Dynamic categories with real product counts */}
+                                  {categories.map((category) => {
+                                    const categoryCount = products.filter(
+                                      (p) => p.category === category.title
+                                    ).length;
+
+                                    return (
+                                      <li
+                                        key={category.id}
+                                        className="cat-checkbox"
+                                      >
+                                        <label className="checkbox-label">
+                                          <input
+                                            type="checkbox"
+                                            className="cust-checkbox"
+                                            checked={
+                                              selectedCategories[0] ===
+                                              category.title
+                                            }
+                                            onChange={() =>
+                                              handleCategoryChange(
+                                                category.title
+                                              )
+                                            }
+                                          />
+                                          <span className="check-name">
+                                            {category.title}
+                                          </span>
+                                          <span className="count-check">
+                                            ({categoryCount})
+                                          </span>
+                                          <span className="cust-check"></span>
+                                        </label>
+                                      </li>
+                                    );
+                                  })}
                                 </ul>
                               </div>
                             </div>
@@ -630,43 +642,6 @@ const ProductInfo = () => {
                                 className="collapse filter-element"
                                 id="reset"
                               >
-                                {/* <ul className="brand-ul scrollbar">
-                                  <li className="brand-li">
-                                    <label className="cust-checkbox-label">
-                                      <input
-                                        type="checkbox"
-                                        name="cust-checkbox"
-                                        className="cust-checkbox"
-                                      />
-                                      <span className="filter-name">
-                                        {"All"}
-                                      </span>
-                                      <span className="count-check">(23)</span>
-                                      <span className="cust-check"></span>
-                                    </label>
-                                  </li>
-                                  {products.map((bnd) => {
-                                    return (
-                                      <li className="brand-li">
-                                        <label className="cust-checkbox-label">
-                                          <input
-                                            type="checkbox"
-                                            name="cust-checkbox"
-                                            className="cust-checkbox"
-                                          />
-                                          <span className="filter-name">
-                                            {bnd.brand}
-                                       
-                                          </span>
-                                          <span className="count-check">
-                                            (23)
-                                          </span>
-                                          <span className="cust-check"></span>
-                                        </label>
-                                      </li>
-                                    );
-                                  })}
-                                </ul> */}
                                 <ul className="brand-ul scrollbar">
                                   {uniqueBrands.map((brand, i) => (
                                     <li className="brand-li" key={i}>
