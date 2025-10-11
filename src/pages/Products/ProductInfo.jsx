@@ -12,17 +12,29 @@ const ProductInfo = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedBrand, setSelectedBrand] = useState("All");
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(5000);
+  const [maxPrice, setMaxPrice] = useState(0); // dynamic later
 
-  const handleGridChange = (view) => {
-    setGridView(view);
-  };
-
+  // ✅ Load categories & products on mount
   useEffect(() => {
     setCategories(categoriesData);
     setProducts(prodactData);
-    setFilteredProducts(prodactData); // initially show all
-  }, []);
+    setFilteredProducts(prodactData);
+
+    // Calculate dynamic price range based on product data
+    const prices = products.map((p) =>
+      Number(p.newPrice.replace(/[^\d.-]/g, ""))
+    );
+    const min = Math.min(...prices);
+    const max = Math.max(...prices);
+
+    setMinPrice(min);
+    setMaxPrice(max);
+  }, [products]);
+
+  // ✅ Handle grid view change
+  const handleGridChange = (view) => {
+    setGridView(view);
+  };
 
   // ✅ Category Filter
   const handleCategoryChange = (categoryTitle) => {
@@ -42,28 +54,33 @@ const ProductInfo = () => {
     setSelectedBrand(brand);
   };
 
-  // ✅ Price Filter
+  // ✅ Price Filter Change
   const handlePriceChange = (e, type) => {
     const value = Number(e.target.value);
     if (type === "min") setMinPrice(value);
     else setMaxPrice(value);
   };
 
-  // ✅ Main filtering logic
+  // ✅ Extract all unique brands
+  const uniqueBrands = ["All", ...new Set(prodactData.map((p) => p.brand))];
+
+  // ✅ Main Filtering Logic
   useEffect(() => {
     let filtered = [...products];
 
-    // Category filter
+    // Filter by category
     if (selectedCategories.length > 0) {
-      filtered = filtered.filter((p) => p.category === selectedCategories[0]);
+      filtered = filtered.filter(
+        (p) => p.category === selectedCategories[0]
+      );
     }
 
-    // Brand filter
+    // Filter by brand
     if (selectedBrand !== "All") {
       filtered = filtered.filter((p) => p.brand === selectedBrand);
     }
 
-    // Price filter
+    // Filter by price
     filtered = filtered.filter((p) => {
       const price = Number(p.newPrice.replace(/[^\d.-]/g, ""));
       return price >= minPrice && price <= maxPrice;
@@ -72,8 +89,12 @@ const ProductInfo = () => {
     setFilteredProducts(filtered);
   }, [selectedCategories, selectedBrand, minPrice, maxPrice, products]);
 
-  // ✅ Extract all unique brands
-  const uniqueBrands = ["All", ...new Set(products.map((p) => p.brand))];
+  // ✅ Dynamic highest product price (for UI display)
+  const highestPrice = Math.max(
+    ...products.map((p) => Number(p.newPrice.replace(/[^\d.-]/g, "")))
+  );
+
+
   // Open modal with body scroll handling
   const openModal = (modalId) => {
     const modalEl = document.getElementById(modalId);
@@ -484,85 +505,80 @@ const ProductInfo = () => {
                               </div>
                             </div>
 
-                            <div className="shop-sidebar sidebar-price">
-                              <h6 className="shop-title">Price</h6>
-                              <Link
-                                to="#collapse-3"
-                                data-bs-toggle="collapse"
-                                className="shop-title shop-title-lg"
-                              >
-                                Price
-                              </Link>
-                              <div className="filter-info">
-                                <span className="shop-price">
-                                  The highest price is ৳10,680.00
-                                </span>
-                                <facet-remove>
-                                  <Link
-                                    to="#"
-                                    className="reset-text"
-                                    onClick={() => {
-                                      setMinPrice(0);
-                                      setMaxPrice(5000);
-                                      setSelectedCategories([]);
-                                      setFilteredProducts(products);
-                                    }}
-                                  >
-                                    Reset
-                                  </Link>
-                                </facet-remove>
-                              </div>
-                              {/* <!-- Product-price start --> */}
-                              <div
-                                className="collapse price-wrap"
-                                id="collapse-3"
-                              >
-                                <price-range className="price-range">
-                                  <div className="price-range-group group-range">
-                                    <input
-                                      type="range"
-                                      className="range"
-                                      min="0"
-                                      max="5000"
-                                      value={minPrice}
-                                      onChange={(e) =>
-                                        handlePriceChange(e, "min")
-                                      }
-                                    />
-                                    <input
-                                      type="range"
-                                      className="range"
-                                      min="0"
-                                      max="5000"
-                                      value={maxPrice}
-                                      onChange={(e) =>
-                                        handlePriceChange(e, "max")
-                                      }
-                                    />
-                                  </div>
+                         <div className="shop-sidebar sidebar-price">
+        <h6 className="shop-title">Price</h6>
+        <Link
+          to="#collapse-3"
+          data-bs-toggle="collapse"
+          className="shop-title shop-title-lg"
+        >
+          Price
+        </Link>
+        <div className="filter-info">
+          <span className="shop-price">
+            The highest price is ৳{highestPrice.toLocaleString()}
+          </span>
+          <facet-remove>
+            <Link
+              to="#"
+              className="reset-text"
+              onClick={() => {
+                const prices = products.map((p) =>
+                  Number(p.newPrice.replace(/[^\d.-]/g, ""))
+                );
+                setMinPrice(Math.min(...prices));
+                setMaxPrice(Math.max(...prices));
+                setSelectedCategories([]);
+                setSelectedBrand("All");
+                setFilteredProducts(products);
+              }}
+            >
+              Reset
+            </Link>
+          </facet-remove>
+        </div>
 
-                                  <div className="price-input-group group-input">
-                                    <div className="price-range-input input-price">
-                                      <label className="label-text">From</label>
-                                      <span className="price-value">৳</span>
-                                      <span id="demo1" className="price-field">
-                                        {minPrice}
-                                      </span>
-                                    </div>
-                                    <span className="price-range-delimeter">
-                                      -
-                                    </span>
-                                    <div className="price-range-input input-price">
-                                      <label className="label-text">To</label>
-                                      <span className="price-value">৳</span>
-                                      <span id="demo2" className="price-field">
-                                        {maxPrice}
-                                      </span>
-                                    </div>
-                                  </div>
-                                </price-range>
-                              </div>
-                            </div>
+        <div className="collapse price-wrap" id="collapse-3">
+          <price-range className="price-range">
+            <div className="price-range-group group-range">
+              <input
+                type="range"
+                className="range"
+                min="0"
+                max={highestPrice}
+                value={minPrice}
+                onChange={(e) => handlePriceChange(e, "min")}
+              />
+              <input
+                type="range"
+                className="range"
+                min="0"
+                max={highestPrice}
+                value={maxPrice}
+                onChange={(e) => handlePriceChange(e, "max")}
+              />
+            </div>
+
+            <div className="price-input-group group-input">
+              <div className="price-range-input input-price">
+                <label className="label-text">From</label>
+                <span className="price-value">৳</span>
+                <span id="demo1" className="price-field">
+                  {minPrice}
+                </span>
+              </div>
+              <span className="price-range-delimeter">-</span>
+              <div className="price-range-input input-price">
+                <label className="label-text">To</label>
+                <span className="price-value">৳</span>
+                <span id="demo2" className="price-field">
+                  {maxPrice}
+                </span>
+              </div>
+            </div>
+          </price-range>
+        </div>
+      </div>
 
                             <div className="shop-sidebar sidebar-wedget">
                               <h6 className="shop-title">Availability</h6>
