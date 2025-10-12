@@ -70,9 +70,7 @@ const ProductInfo = () => {
 
     // Filter by category
     if (selectedCategories.length > 0) {
-      filtered = filtered.filter(
-        (p) => p.category === selectedCategories[0]
-      );
+      filtered = filtered.filter((p) => p.category === selectedCategories[0]);
     }
 
     // Filter by brand
@@ -94,6 +92,40 @@ const ProductInfo = () => {
     ...products.map((p) => Number(p.newPrice.replace(/[^\d.-]/g, "")))
   );
 
+  // ✅ Sort Function
+  const handleSortChange = (value) => {
+    let sorted = [...filteredProducts];
+
+    switch (value) {
+      case "title-ascending":
+        sorted.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+      case "title-descending":
+        sorted.sort((a, b) => b.title.localeCompare(a.title));
+        break;
+      case "price-ascending":
+        sorted.sort(
+          (a, b) =>
+            parseFloat(a.newPrice.replace(/[^\d.-]/g, "")) -
+            parseFloat(b.newPrice.replace(/[^\d.-]/g, ""))
+        );
+        break;
+      case "price-descending":
+        sorted.sort(
+          (a, b) =>
+            parseFloat(b.newPrice.replace(/[^\d.-]/g, "")) -
+            parseFloat(a.newPrice.replace(/[^\d.-]/g, ""))
+        );
+        break;
+      case "best-selling":
+        sorted.sort((a, b) => b.sales - a.sales); // optional if your data has sales count
+        break;
+      default:
+        sorted = [...products];
+    }
+
+    setFilteredProducts(sorted);
+  };
 
   // Open modal with body scroll handling
   const openModal = (modalId) => {
@@ -174,7 +206,7 @@ const ProductInfo = () => {
                   {/* <!-- product-short start --> */}
                   <div className="product-short">
                     <label htmlFor="SortBy">Sort by:</label>
-                    <select className="nice-select" name="sortby" id="SortBy">
+                    {/* <select className="nice-select" name="sortby" id="SortBy">
                       <option value="manual">Featured</option>
                       <option value="best-selling">Best Selling</option>
                       <option value="title-ascending">
@@ -189,13 +221,8 @@ const ProductInfo = () => {
                       <option value="price-descending">
                         Price, high to low
                       </option>
-                      <option value="created-descending">
-                        Date, new to old
-                      </option>
-                      <option value="created-ascending">
-                        Date, old to new
-                      </option>
-                    </select>
+                    </select> */}
+
                     <Link to="#" className="short-title">
                       <span className="sort-title">Best Selling</span>
                       <span className="sort-icon">
@@ -208,7 +235,7 @@ const ProductInfo = () => {
                         <i className="bi bi-chevron-down"></i>
                       </span>
                     </Link>
-                    <ul className="pro-ul collapse">
+                    {/* <ul className="pro-ul collapse">
                       <li className="pro-li">
                         <Link to="#">Featured</Link>
                       </li>
@@ -227,11 +254,52 @@ const ProductInfo = () => {
                       <li className="pro-li">
                         <Link to="#">Price, high to low</Link>
                       </li>
+                    </ul> */}
+                    <ul className="pro-ul collapse">
                       <li className="pro-li">
-                        <Link to="#">Date, new to old</Link>
+                        <Link to="#" onClick={() => handleSortChange("manual")}>
+                          Featured
+                        </Link>
                       </li>
                       <li className="pro-li">
-                        <Link to="#">Date, old to new</Link>
+                        <Link
+                          to="#"
+                          onClick={() => handleSortChange("best-selling")}
+                        >
+                          Best Selling
+                        </Link>
+                      </li>
+                      <li className="pro-li">
+                        <Link
+                          to="#"
+                          onClick={() => handleSortChange("title-ascending")}
+                        >
+                          Alphabetically, A-Z
+                        </Link>
+                      </li>
+                      <li className="pro-li">
+                        <Link
+                          to="#"
+                          onClick={() => handleSortChange("title-descending")}
+                        >
+                          Alphabetically, Z-A
+                        </Link>
+                      </li>
+                      <li className="pro-li">
+                        <Link
+                          to="#"
+                          onClick={() => handleSortChange("price-ascending")}
+                        >
+                          Price, low to high
+                        </Link>
+                      </li>
+                      <li className="pro-li">
+                        <Link
+                          to="#"
+                          onClick={() => handleSortChange("price-descending")}
+                        >
+                          Price, high to low
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -505,80 +573,92 @@ const ProductInfo = () => {
                               </div>
                             </div>
 
-                         <div className="shop-sidebar sidebar-price">
-        <h6 className="shop-title">Price</h6>
-        <Link
-          to="#collapse-3"
-          data-bs-toggle="collapse"
-          className="shop-title shop-title-lg"
-        >
-          Price
-        </Link>
-        <div className="filter-info">
-          <span className="shop-price">
-            The highest price is ৳{highestPrice.toLocaleString()}
-          </span>
-          <facet-remove>
-            <Link
-              to="#"
-              className="reset-text"
-              onClick={() => {
-                const prices = products.map((p) =>
-                  Number(p.newPrice.replace(/[^\d.-]/g, ""))
-                );
-                setMinPrice(Math.min(...prices));
-                setMaxPrice(Math.max(...prices));
-                setSelectedCategories([]);
-                setSelectedBrand("All");
-                setFilteredProducts(products);
-              }}
-            >
-              Reset
-            </Link>
-          </facet-remove>
-        </div>
+                            <div className="shop-sidebar sidebar-price">
+                              <h6 className="shop-title">Price</h6>
+                              <Link
+                                to="#collapse-3"
+                                data-bs-toggle="collapse"
+                                className="shop-title shop-title-lg"
+                              >
+                                Price
+                              </Link>
+                              <div className="filter-info">
+                                <span className="shop-price">
+                                  The highest price is ৳{" "}
+                                  {highestPrice.toLocaleString()}
+                                </span>
+                                <facet-remove>
+                                  <Link
+                                    to="#"
+                                    className="reset-text"
+                                    onClick={() => {
+                                      const prices = products.map((p) =>
+                                        Number(
+                                          p.newPrice.replace(/[^\d.-]/g, "")
+                                        )
+                                      );
+                                      setMinPrice(Math.min(...prices));
+                                      setMaxPrice(Math.max(...prices));
+                                      setSelectedCategories([]);
+                                      setSelectedBrand("All");
+                                      setFilteredProducts(products);
+                                    }}
+                                  >
+                                    Reset
+                                  </Link>
+                                </facet-remove>
+                              </div>
 
-        <div className="collapse price-wrap" id="collapse-3">
-          <price-range className="price-range">
-            <div className="price-range-group group-range">
-              <input
-                type="range"
-                className="range"
-                min="0"
-                max={highestPrice}
-                value={minPrice}
-                onChange={(e) => handlePriceChange(e, "min")}
-              />
-              <input
-                type="range"
-                className="range"
-                min="0"
-                max={highestPrice}
-                value={maxPrice}
-                onChange={(e) => handlePriceChange(e, "max")}
-              />
-            </div>
+                              <div
+                                className="collapse price-wrap"
+                                id="collapse-3"
+                              >
+                                <price-range className="price-range">
+                                  <div className="price-range-group group-range">
+                                    <input
+                                      type="range"
+                                      className="range"
+                                      min="0"
+                                      max={highestPrice}
+                                      value={minPrice}
+                                      onChange={(e) =>
+                                        handlePriceChange(e, "min")
+                                      }
+                                    />
+                                    <input
+                                      type="range"
+                                      className="range"
+                                      min="0"
+                                      max={highestPrice}
+                                      value={maxPrice}
+                                      onChange={(e) =>
+                                        handlePriceChange(e, "max")
+                                      }
+                                    />
+                                  </div>
 
-            <div className="price-input-group group-input">
-              <div className="price-range-input input-price">
-                <label className="label-text">From</label>
-                <span className="price-value">৳</span>
-                <span id="demo1" className="price-field">
-                  {minPrice}
-                </span>
-              </div>
-              <span className="price-range-delimeter">-</span>
-              <div className="price-range-input input-price">
-                <label className="label-text">To</label>
-                <span className="price-value">৳</span>
-                <span id="demo2" className="price-field">
-                  {maxPrice}
-                </span>
-              </div>
-            </div>
-          </price-range>
-        </div>
-      </div>
+                                  <div className="price-input-group group-input">
+                                    <div className="price-range-input input-price">
+                                      <label className="label-text">From</label>
+                                      <span className="price-value">৳</span>
+                                      <span id="demo1" className="price-field">
+                                        {minPrice}
+                                      </span>
+                                    </div>
+                                    <span className="price-range-delimeter">
+                                      -
+                                    </span>
+                                    <div className="price-range-input input-price">
+                                      <label className="label-text">To</label>
+                                      <span className="price-value">৳</span>
+                                      <span id="demo2" className="price-field">
+                                        {maxPrice}
+                                      </span>
+                                    </div>
+                                  </div>
+                                </price-range>
+                              </div>
+                            </div>
 
                             <div className="shop-sidebar sidebar-wedget">
                               <h6 className="shop-title">Availability</h6>
