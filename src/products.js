@@ -6,7 +6,7 @@ const products = [
     img2: "img/product/home1-pro-2.jpg",
     subtitle: "Wireless device",
     title: "Wireless headphones",
-    newPrice: "৳2,520",
+    newPrice: "৳520",
     oldPrice: "৳3,000",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry...",

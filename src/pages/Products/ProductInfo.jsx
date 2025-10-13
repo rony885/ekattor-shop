@@ -206,22 +206,6 @@ const ProductInfo = () => {
                   {/* <!-- product-short start --> */}
                   <div className="product-short">
                     <label htmlFor="SortBy">Sort by:</label>
-                    {/* <select className="nice-select" name="sortby" id="SortBy">
-                      <option value="manual">Featured</option>
-                      <option value="best-selling">Best Selling</option>
-                      <option value="title-ascending">
-                        Alphabetically, A-Z
-                      </option>
-                      <option value="title-descending">
-                        Alphabetically, Z-A
-                      </option>
-                      <option value="price-ascending">
-                        Price, low to high
-                      </option>
-                      <option value="price-descending">
-                        Price, high to low
-                      </option>
-                    </select> */}
 
                     <Link to="#" className="short-title">
                       <span className="sort-title">Best Selling</span>
