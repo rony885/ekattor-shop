@@ -121,7 +121,7 @@ function App() {
               }
             />
             <Route
-              path="/product-details"
+              path="/product-details/:prodId"
               element={
                 <>
                   <PageTitle title="Product Details | Ekattor Shop" />

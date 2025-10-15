@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import prodactData from "../../products.js";
 import {
   FaFacebookF,
   FaTwitter,
@@ -12,27 +13,37 @@ import {
 } from "react-icons/fa";
 
 const ProductDetailsInfo = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    setProducts(prodactData);
+  }, []);
+
   const navigate = useNavigate();
   const [bigNav, setBigNav] = useState(null);
   const [thumbNav, setThumbNav] = useState(null);
 
   const [isFullView, setIsFullView] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { prodId } = useParams();
 
-  const images = [
-    "/home1-pro-1.jpg",
-    "/home1-pro-2.jpg",
-    "/home1-pro-3.jpg",
-    "/home1-pro-4.jpg",
-    "/home1-pro-5.jpg",
-    "/home1-pro-6.jpg",
-    "/home1-pro-7.jpg",
-    "/home1-pro-8.jpg",
-    "/home1-pro-9.jpg",
-    "/home1-pro-10.jpg",
-    "/home1-pro-11.jpg",
-    "/home1-pro-12.jpg",
-  ];
+  // const images = [
+  //   "/home1-pro-1.jpg",
+  //   "/home1-pro-2.jpg",
+  //   "/home1-pro-3.jpg",
+  //   "/home1-pro-4.jpg",
+  //   "/home1-pro-5.jpg",
+  //   "/home1-pro-6.jpg",
+  //   "/home1-pro-7.jpg",
+  //   "/home1-pro-8.jpg",
+  //   "/home1-pro-9.jpg",
+  //   "/home1-pro-10.jpg",
+  //   "/home1-pro-11.jpg",
+  //   "/home1-pro-12.jpg",
+  // ];
+
+    const findProduct =
+    products && products.find((prod) => prod.id === parseInt(prodId));
 
   // ✅ Big slider settings
   const bigSettings = {
@@ -164,7 +175,7 @@ const ProductDetailsInfo = () => {
                         ref={setBigNav}
                         className="slider-big"
                       >
-                        {images.map((img, index) => (
+                        {findProduct.map((img, index) => (
                           <div className="slick-slide" key={index}>
                             <figure
                               className="zoom"
@@ -172,7 +183,7 @@ const ProductDetailsInfo = () => {
                               onMouseLeave={handleMouseLeave}
                             >
                               <img
-                                src={`/img/product/${img}`}
+                                src={`/img/product/${img.img1}`}
                                 className="img-fluid zoom-img"
                                 alt={`pro-${index + 1}`}
                               />
@@ -188,11 +199,11 @@ const ProductDetailsInfo = () => {
                         ref={setThumbNav}
                         className="slider-small"
                       >
-                        {images.map((img, index) => (
+                        {findProduct.map((img, index) => (
                           <div className="slick-slide" key={index}>
                             <Link to="#!" className="product-single--thumbnail">
                               <img
-                                src={`/img/product/${img}`}
+                                src={`/img/product/${img.img1}`}
                                 className="img-fluid"
                                 alt={`pro-${index + 1}`}
                               />
@@ -228,10 +239,10 @@ const ProductDetailsInfo = () => {
                           prevArrow={<FullPrevArrow />}
                           nextArrow={<FullNextArrow />}
                         >
-                          {images.map((img, index) => (
+                          {findProduct.map((img, index) => (
                             <div key={index} className="slick-slide">
                               <img
-                                src={`/img/product/${img}`}
+                                src={`/img/product/${img.img1}`}
                                 className="img-fluid"
                                 alt={`pro-${index + 1}`}
                               />
@@ -243,12 +254,10 @@ const ProductDetailsInfo = () => {
                   )}
                 </div>
 
-       
                 <div className="product-details-wrap product-details-tb product-details">
                   <div className="product-details-info">
                     <div className="pro-nprist">
                       <div className="product-info">
-                    
                         <div className="product-ratting">
                           <span className="pro-ratting">
                             <i className="fas fa-star"></i>
@@ -259,14 +268,11 @@ const ProductDetailsInfo = () => {
                           </span>
                           <span className="spr-badge-caption">3 Reviews</span>
                         </div>
-                     
                       </div>
                       <div className="product-info">
-                    
                         <div className="product-title">
                           <h2>Wireless earbuds</h2>
                         </div>
-                    
                       </div>
                       <div className="product-info">
                         <div className="pro-prlb pro-sale">
@@ -322,7 +328,7 @@ const ProductDetailsInfo = () => {
                                           type="radio"
                                           name="option-0"
                                           value="Black"
-                                          checked
+                                          defaultChecked
                                         />
                                         <label>Black</label>
                                       </div>
@@ -370,7 +376,6 @@ const ProductDetailsInfo = () => {
                       </div>
                       <div className="product-info">
                         <div className="product-actions">
-                      
                           <div className="pro-detail-button">
                             <button
                               type="button"
@@ -400,7 +405,6 @@ const ProductDetailsInfo = () => {
                               <span className="wishlist-text">Wishlist</span>
                             </Link>
                           </div>
-           
                         </div>
                       </div>
                       <div className="product-info">
@@ -416,7 +420,7 @@ const ProductDetailsInfo = () => {
                       <div
                         className="modal fade deliver-modal"
                         id="deliver-modal"
-                        tabindex="-1"
+                        tabIndex="-1"
                         style={{ display: "none" }}
                         aria-hidden="true"
                       >
@@ -492,7 +496,7 @@ const ProductDetailsInfo = () => {
                         className="modal fade que-modal"
                         id="que-modal"
                         aria-modal="true"
-                        tabindex="-1"
+                        tabIndex="-1"
                         role="dialog"
                       >
                         <div className="modal-dialog modal-dialog-centered">
@@ -589,7 +593,7 @@ const ProductDetailsInfo = () => {
                           </div>
                         </div>
                       </div>
-                    
+
                       <div className="product-info">
                         <p>
                           <span>🚚</span> Item will be delivered on or before
@@ -799,7 +803,6 @@ const ProductDetailsInfo = () => {
                     </div>
                   </div>
                 </div>
-              
               </div>
             </div>
           </div>

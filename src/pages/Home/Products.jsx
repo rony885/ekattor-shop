@@ -156,7 +156,10 @@ const ProductTranding = () => {
                           </div>
                           <div className="product-title">
                             <h6>
-                              <Link to="/product-details">{product.title}</Link>
+                              {/* <Link to="/product-details">{product.title}</Link> */}
+                              <Link to={`/product-details/${product.id}`}>
+                                {product.title}
+                              </Link>
                             </h6>
                           </div>
                           <div className="product-price">
