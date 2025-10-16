@@ -27,23 +27,25 @@ const ProductDetailsInfo = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { prodId } = useParams();
 
-  // const images = [
-  //   "/home1-pro-1.jpg",
-  //   "/home1-pro-2.jpg",
-  //   "/home1-pro-3.jpg",
-  //   "/home1-pro-4.jpg",
-  //   "/home1-pro-5.jpg",
-  //   "/home1-pro-6.jpg",
-  //   "/home1-pro-7.jpg",
-  //   "/home1-pro-8.jpg",
-  //   "/home1-pro-9.jpg",
-  //   "/home1-pro-10.jpg",
-  //   "/home1-pro-11.jpg",
-  //   "/home1-pro-12.jpg",
-  // ];
+  const images = [
+    "/home1-pro-1.jpg",
+    "/home1-pro-2.jpg",
+    "/home1-pro-3.jpg",
+    "/home1-pro-4.jpg",
+    "/home1-pro-5.jpg",
+    "/home1-pro-6.jpg",
+    "/home1-pro-7.jpg",
+    "/home1-pro-8.jpg",
+    "/home1-pro-9.jpg",
+    "/home1-pro-10.jpg",
+    "/home1-pro-11.jpg",
+    "/home1-pro-12.jpg",
+  ];
 
-    const findProduct =
+  const findProduct =
     products && products.find((prod) => prod.id === parseInt(prodId));
+
+  console.log(findProduct);
 
   // ✅ Big slider settings
   const bigSettings = {
@@ -175,7 +177,7 @@ const ProductDetailsInfo = () => {
                         ref={setBigNav}
                         className="slider-big"
                       >
-                        {findProduct.map((img, index) => (
+                        {/* {images.map((img, index) => (
                           <div className="slick-slide" key={index}>
                             <figure
                               className="zoom"
@@ -183,13 +185,27 @@ const ProductDetailsInfo = () => {
                               onMouseLeave={handleMouseLeave}
                             >
                               <img
-                                src={`/img/product/${img.img1}`}
+                                src={`/img/product/${img}`}
                                 className="img-fluid zoom-img"
                                 alt={`pro-${index + 1}`}
                               />
                             </figure>
                           </div>
-                        ))}
+                        ))} */}
+
+                        <div className="slick-slide">
+                          <figure
+                            className="zoom"
+                            onMouseMove={handleMouseMove}
+                            onMouseLeave={handleMouseLeave}
+                          >
+                            <img
+                              src={findProduct && findProduct.img1}
+                              className="img-fluid zoom-img"
+                              alt=""
+                            />
+                          </figure>
+                        </div>
                       </Slider>
                     </div>
 
@@ -199,11 +215,22 @@ const ProductDetailsInfo = () => {
                         ref={setThumbNav}
                         className="slider-small"
                       >
-                        {findProduct.map((img, index) => (
+                        {/* {images.map((img, index) => (
                           <div className="slick-slide" key={index}>
                             <Link to="#!" className="product-single--thumbnail">
                               <img
-                                src={`/img/product/${img.img1}`}
+                                src={`/img/product/${img}`}
+                                className="img-fluid"
+                                alt={`pro-${index + 1}`}
+                              />
+                            </Link>
+                          </div>
+                        ))} */}
+                        {images.map((img, index) => (
+                          <div className="slick-slide" key={index}>
+                            <Link to="#!" className="product-single--thumbnail">
+                              <img
+                                src={`/img/product/${img}`}
                                 className="img-fluid"
                                 alt={`pro-${index + 1}`}
                               />
@@ -239,10 +266,10 @@ const ProductDetailsInfo = () => {
                           prevArrow={<FullPrevArrow />}
                           nextArrow={<FullNextArrow />}
                         >
-                          {findProduct.map((img, index) => (
+                          {images.map((img, index) => (
                             <div key={index} className="slick-slide">
                               <img
-                                src={`/img/product/${img.img1}`}
+                                src={`/img/product/${img}`}
                                 className="img-fluid"
                                 alt={`pro-${index + 1}`}
                               />
@@ -328,7 +355,7 @@ const ProductDetailsInfo = () => {
                                           type="radio"
                                           name="option-0"
                                           value="Black"
-                                          defaultChecked
+                                          checked
                                         />
                                         <label>Black</label>
                                       </div>
@@ -420,7 +447,7 @@ const ProductDetailsInfo = () => {
                       <div
                         className="modal fade deliver-modal"
                         id="deliver-modal"
-                        tabIndex="-1"
+                        tabindex="-1"
                         style={{ display: "none" }}
                         aria-hidden="true"
                       >
@@ -496,7 +523,7 @@ const ProductDetailsInfo = () => {
                         className="modal fade que-modal"
                         id="que-modal"
                         aria-modal="true"
-                        tabIndex="-1"
+                        tabindex="-1"
                         role="dialog"
                       >
                         <div className="modal-dialog modal-dialog-centered">

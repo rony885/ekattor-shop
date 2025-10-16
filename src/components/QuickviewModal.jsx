@@ -270,7 +270,6 @@ const QuickviewModal = () => {
                       </Link>
                     </div>
                   </div>
-          
 
                   <div className="product-payment-image">
                     <ul className="payment-icon">
